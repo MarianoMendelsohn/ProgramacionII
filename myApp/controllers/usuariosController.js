@@ -1,8 +1,9 @@
 const usuariosController = {
 
-    index:function(req, res ) {
-        res.render('perfil',{});
-      }
+    registro:function(req, res ) {
+        res.render('registro',{});
+      },
+    
     
 }
 module.exports = usuariosController
