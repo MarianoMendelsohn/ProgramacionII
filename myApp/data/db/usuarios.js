@@ -9,43 +9,43 @@ let usuarios = [{
 };
 
 {
-    nombreDeUsuario:
-    email:
-    contraseña:
-    fechaDeNac:
-    dni:
+    nombreDeUsuario: 'Mariano',
+    email: 'mariano@gmail.com',
+    contraseña:'hola123',
+    fechaDeNac: 03/09/99,
+    dni: 41888222
     fotoDePerfil:
 
 };
 {
 
-    nombreDeUsuario:
-    email:
-    contraseña:
-    fechaDeNac:
-    dni:
+    nombreDeUsuario: 'Franco',
+    email: 'franco@gmail.com',
+    contraseña: 'hola123'
+    fechaDeNac: 09/09/99
+    dni:41758902
     fotoDePerfil:
 };
 {
 
-    nombreDeUsuario:
-    email:
-    contraseña:
-    fechaDeNac:
-    dni:
+    nombreDeUsuario: 'Mauro',
+    email: 'mauro@gmail.com', 
+    contraseña:'hola123'
+    fechaDeNac: 08/4/99,
+    dni: 41887921
     fotoDePerfil:
 };
 {
 
-    nombreDeUsuario:
-    email:
-    contraseña:
-    fechaDeNac:
-    dni:
+    nombreDeUsuario: 'Brian',
+    email: 'brian@gmail.com',
+    contraseña: 'hola123',
+    fechaDeNac: 09/09/90,
+    dni: 34898321
     fotoDePerfil:
 };
 ]
 
 
-    nombreDeUsuario:
+   
 ]
