@@ -1,7 +1,7 @@
 let usuarios = [{
 
-    nombreDeUsuario: 'Facundo',
-    email:'kundo@gmail.com',
+    nombreDeUsuario: 'Big Pons',
+    email:'bigpons@gmail.com',
     contraseña: 'hola123',
     fechaDeNac: 06/03/99,
     dni:41781311, 
@@ -9,8 +9,8 @@ let usuarios = [{
 },
 
 {
-    nombreDeUsuario: 'Mariano',
-    email: 'mariano@gmail.com',
+    nombreDeUsuario: 'Old Fashioned',
+    email: 'oldfashioned54@gmail.com',
     contraseña:'hola123',
     fechaDeNac: 03/09/99,
     dni: 41888222,
@@ -19,8 +19,8 @@ let usuarios = [{
 },
 {
 
-    nombreDeUsuario: 'Franco',
-    email: 'franco@gmail.com',
+    nombreDeUsuario: 'Voraz',
+    email: 'voraz@gmail.com',
     contraseña: 'hola123',
     fechaDeNac: 09/09/99,
     dni:41758902,
@@ -28,8 +28,8 @@ let usuarios = [{
 },
 {
 
-    nombreDeUsuario: 'Mauro',
-    email: 'mauro@gmail.com', 
+    nombreDeUsuario: 'La birra bar',
+    email: 'labirra@gmail.com', 
     contraseña:'hola123',
     fechaDeNac: 08/4/99,
     dni: 41887921,
@@ -37,8 +37,8 @@ let usuarios = [{
 },
 {
 
-    nombreDeUsuario: 'Brian',
-    email: 'brian@gmail.com',
+    nombreDeUsuario: 'McDonalds',
+    email: 'mcdonalds@gmail.com',
     contraseña: 'hola123',
     fechaDeNac: 09/09/90,
     dni: 34898321,
