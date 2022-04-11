@@ -1,2 +1,0 @@
-let 
-module.exports = productos
