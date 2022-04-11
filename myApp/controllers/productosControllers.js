@@ -11,7 +11,15 @@ const productosControllers = {
       return res.render('product',{
         lista: data.productos[0]
       })
-    }
+    },
+    agregarProducto: function(req, res){
+      return res.render('agregarProducto',{})
+    },
+    resultadoProducto: function (req, res){
+      return res.render('resultadoBusqueda',{})
+    },
+    
+
    
 }
 
