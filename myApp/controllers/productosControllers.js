@@ -1,5 +1,4 @@
 const data = require('../data/data');
-const prodctos = require('../data/data')
 
 const productosControllers = {
 
@@ -7,15 +6,14 @@ const productosControllers = {
         return res.render('index',{
           lista: data.productos
         });
-      }
+      },
+    detalleProducto: function (req, res){
+      return res.render('product',{
+        lista: data.productos[0]
+      })
+    }
    
 }
-
-
-
-
-
-
 
 
 module.exports = productosControllers

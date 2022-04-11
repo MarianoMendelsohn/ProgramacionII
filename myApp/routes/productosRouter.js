@@ -5,5 +5,8 @@ const productosControllers =require('../controllers/productosControllers')
 
 router.get('/todosLosProductos', productosControllers.index); // router.get marca el suffijo
 //router.get('/detalle/:id')
+router.get ('/detalleProducto', productosControllers.detalleProducto)
+
+
 
 module.exports = router;
