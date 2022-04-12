@@ -8,8 +8,10 @@ const productosControllers = {
         });
       },
     detalleProducto: function (req, res){
+      let idProducto = req.params.id
       return res.render('product',{
-        lista: data.productos[0]
+        producto: data.productos[idProducto],
+        comentarios: data.comentarios
       })
     },
     agregarProducto: function(req, res){

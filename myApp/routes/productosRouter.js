@@ -5,7 +5,7 @@ const productosControllers =require('../controllers/productosControllers')
 
 router.get('/todosLosProductos', productosControllers.index); // router.get marca el suffijo
 //router.get('/detalle/:id')
-router.get ('/detalleProducto', productosControllers.detalleProducto)
+router.get ('/detalleProducto/:id', productosControllers.detalleProducto)
 router.get ('/agregarProducto', productosControllers.agregarProducto)
 router.get ('/resultadoProducto', productosControllers.resultadoProducto)
 
