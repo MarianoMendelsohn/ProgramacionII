@@ -1,3 +1,4 @@
+const { comentarios } = require('../data/data');
 const data = require('../data/data');
 
 const productosControllers = {
@@ -22,8 +23,6 @@ const productosControllers = {
     resultadoProducto: function (req, res){
       return res.render('resultadoBusqueda',{})
     },
-    
-
    
 }
 
