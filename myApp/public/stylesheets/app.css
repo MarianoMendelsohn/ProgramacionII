@@ -483,6 +483,9 @@ textarea.form-input {
   color: #fff;
 }
 
+.Recordarme-label {
+  color: white;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
@@ -544,7 +547,7 @@ textarea.form-input {
 
   /* formato formulario */
 
-  /*.login-form {
+  .login-form {
   //background: #222;
   //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
   min-height: 10rem;
@@ -594,10 +597,8 @@ textarea.form-input {
   left: 0;
   opacity: 0.6;
   padding: .5rem;
-  position: absolute;
   text-align: center;
   //text-decoration: none;
-  width: 100%;
   &:hover {
     opacity: 1;
   }
@@ -646,6 +647,6 @@ textarea.form-input {
   }
   to {
     -webkit-filter: grayscale(30%) hue-rotate(360deg);
-  }*/
+  }
 
 }

@@ -5,6 +5,7 @@ const usuariosController =require('../controllers/usuariosController')
 router.get('/', usuariosController.registro); // router.get marca el suffijo
 //router.get('/detalle/:id')
 router.get('/login', usuariosController.login);
+router.post('/login', usuariosController.loginPost);
 
 router.get('/editarPerfil', usuariosController.editarPerfil);
 router.get('/perfil', usuariosController.perfil)

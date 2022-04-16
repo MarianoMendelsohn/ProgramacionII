@@ -2,7 +2,7 @@ const data = {
     usuario : {
         nombre : "kundo",
         apellido : "tabanera",
-        mail : "asdasdasda@gmail.com"
+        mail : "kundo@gmail.com"
     },
     productos : [{
         imagen:"/images/prodctos/americanburger.jpeg",
