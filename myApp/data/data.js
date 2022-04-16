@@ -1,7 +1,7 @@
 const data = {
     usuario : {
-        nombre : "nombre",
-        apellido : "apellido",
+        nombre : "kundo",
+        apellido : "tabanera",
         mail : "asdasdasda@gmail.com"
     },
     productos : [{
