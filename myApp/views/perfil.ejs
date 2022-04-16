@@ -46,62 +46,12 @@
 				<img class="foto-de-perfil" src="<%= usuario.imagenDelPerfil %>" alt="Foto de Perfil" style="width:100%">
 				<h1><%= usuario.nombre %> <%= usuario.apellido %> </h1>
 				<p class="title"> <%= usuario.mail %></p>
-				<p>Harvard University</p>
-				<a href="#"><i class="fa fa-dribbble"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-linkedin"></i></a>
-				<a href="#"><i class="fa fa-facebook"></i></a>
-				<p><button>Contact</button></p>
+				<p>Founder</p>
 			  </div>
 			</section>
 
 
-			<% for( let i=0; i < lista.length; i++ ) { %>
-
-				<!-- Mis productos -->
-				<div class="container products-wrapper">
-					<div class="row">
-						<div class="col-12">
-							<h2 class="products-title">Mis productos</h2>
-						</div>
-						<!-- Show mis productos -->
-
-
-						<div class="col-12 col-sm-6 col-lg-3">
-							<section class="product-box">
-								<a href="/product/todosLosProductos">
-									<figure class="product-box_image">
-										<img src="<%= lista[i].imagen %>" alt="cafetera moulinex">
-									</figure>
-									<article class="product-box_data">
-										<h2>
-											<%= lista[i].nombreDelProducto %>
-										</h2>
-										<p>
-											<%= lista[i].Descripcion %>
-										</p>
-
-									</article>
-									<article>
-										<% for( let i=0; i < comentarios.length; i++ ) { %>
-
-											<p>
-											<p>
-												<%=comentarios[i].textoDelComentario%>
-											</p>
-											</p>
-
-											<% } %>
-									</article>
-								</a>
-							</section>
-						</div>
-					</div>
-				</div>
-				<% } %>
-
-
-					<!-- /Mis productos -->
+			
 
 
 					<!-- footer -->
