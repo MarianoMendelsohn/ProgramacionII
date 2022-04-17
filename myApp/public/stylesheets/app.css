@@ -269,7 +269,7 @@ hr {
 .main-footer {
   background-color: #d4920f;
   padding: 20px 0;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .footer-data {
@@ -708,7 +708,7 @@ body {
 
 
 .formulario {
-  position: absolute;
+  /*position: absolute;*/
   align-items: flex-start;
   right: 0;
   margin: 20px;
@@ -738,6 +738,7 @@ input[type=text]:focus, input[type=password]:focus , input[type=date]:focus, inp
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  margin-top: 40px;
 }
 .btn:hover {
   opacity: 5;
@@ -751,5 +752,9 @@ body, html {
   box-sizing: border-box;
 }
 
-
+.editarPerfilForm {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
 
