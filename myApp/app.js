@@ -4,9 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/indexRouter')
-var productosRouter = require('./routes/productosRouter')
-var usuariosRouter = require('./routes/usuariosRouter')
+var indexRouter = require('./routes/indexRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
+var productosRouter = require('./routes/productosRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
+var usuariosRouter = require('./routes/usuariosRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
 
 var app = express();
 
@@ -20,9 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', indexRouter); // asignamos los prefijjos a los modulos declarados arriba. Declaramos el path/ 
 app.use('/usuarios', usuariosRouter);
-app.use('/product', productosRouter); //prefijo
+app.use('/product', productosRouter); 
 
 
 // catch 404 and forward to error handler

@@ -20,7 +20,8 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-			<% for( let i = 0; i < lista.length; i++ ) { %>
+			<% for( let i = 0; i < lista.length; i++ ) { %> <!-- hacemos una interación de un bucle for metido en un arciho html. 
+																let i=0 el inicio del array, i<lista.lentgth condición de corte; i++ modificador que nos dice que va a ir recorriendo todo el array de menor a mayor. -->
 			
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
@@ -31,7 +32,7 @@
 							<article class="product-box_data">
 								<h2><%= lista[i].nombreDelProducto %> </h2>
 								<p><%= lista[i].descripcion %></p>
-								<p>Comentarios: 12</p>
+								<p>Comentarios: 5</p>
 							</article>
 						</a>
 					</section>

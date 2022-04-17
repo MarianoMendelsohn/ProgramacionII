@@ -11,21 +11,6 @@ const usuariosController = {
       usuario: data.usuario,
     });
   },
-  loginGet: function (req, res) {
-    const usuario = req.body.usuario;
-    const password = req.body.password;
-
-    // falta: buscar en db
-    const user = data.usuario.mail === usuario ? data.usuario : null;
-    if (!user) {
-      // error -- credenciales no coinciden
-      res.redirect("/usuarios/login");
-    } else {
-      // éxito
-      // crear sesión y guardar en cookie
-      res.redirect("/");
-    }
-  },
   editarPerfil: function (req, res) {
     res.render("editarPerfil", {
       usuario: data.usuario,

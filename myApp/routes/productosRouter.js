@@ -3,11 +3,10 @@ var router = express.Router();
 
 const productosControllers =require('../controllers/productosControllers') 
 
-router.get('/todosLosProductos', productosControllers.index); // router.get marca el suffijo
-//router.get('/detalle/:id')
-router.get ('/detalleProducto/:id', productosControllers.detalleProducto)
-router.get ('/agregarProducto', productosControllers.agregarProducto)
-router.get ('/resultadoProducto', productosControllers.resultadoProducto)
+router.get('/todosLosProductos', productosControllers.index); // router: Variable // .get: Metodo // /todoslos... : path  // productControllers: modulo // metodo dentro del modulo
+router.get('/detalleProducto/:id', productosControllers.detalleProducto)
+router.get('/agregarProducto', productosControllers.agregarProducto)
+router.get('/resultadoProducto', productosControllers.resultadoProducto)
 
 
 
