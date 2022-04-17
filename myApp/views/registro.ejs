@@ -4,31 +4,31 @@
 
 	<body>
 		<%- include('./partials/header') %>
-		<div class="">
+		<div class="bg-img">
+		
 			<form action="/action_page.php" class="formulario">
 			  <h1></h1>
+			 
 		  
 			  <label for="mail"><b>mail</b></label>
 			  <input type="text" placeholder="Correo electronico" name="" required>
 	
-			  <label for="name"><b>nombre</b></label>
-			  <input type="text" placeholder="nombre" name="desc" required>
-		  
-			  <label for="apellido"><b>apellido</b></label>
-			  <input type="text" placeholder="apellido" name="desc" required>
+			  <label for="name"><b>usuario</b></label>
+			  <input type="text" placeholder="username" name="desc" required>
 
 			  <label for="psw"><b>Password</b></label>
    	 		  <input type="password" placeholder="Enter Password" name="psw" required>
 
-				<label for="imagen"><b>Fecha de nacimiento</b></label>
-			  <input type="date" placeholder="fecha de nacimiento" >
-	
-			  <label for="imagen"><b></b></label>
-			  <input type="file" placeholder="foto de perfil" >
-	
-			  
-			  
+			 <label for="f-de-nac"><b>Fecha de Nacimiento</b></label>
+			 <input type="date" placeholder="Fecha de Nacimiento" name="desc" required>
 		  
+			  <label for="dni"><b>DNI</b></label>
+			  <input type="number" placeholder="DNI" name="desc" required>
+
+			  <label for="fdp"><b>Foto de Perfil</b></label>
+   	 		  <input type="file" placeholder="Foto de Perfil" name="fdp" required>
+
+			
 			  <button type="submit" class="btn">Registrarse</button>
 			</form>
 		</div>
