@@ -8,8 +8,6 @@ var indexRouter = require('./routes/indexRouter')
 var productosRouter = require('./routes/productosRouter')
 var usuariosRouter = require('./routes/usuariosRouter')
 
-
-
 var app = express();
 
 // view engine setup
@@ -22,18 +20,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.use('/', indexRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/product', productosRouter); //prefijo
 
+
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

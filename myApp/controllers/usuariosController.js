@@ -11,7 +11,7 @@ const usuariosController = {
       usuario: data.usuario,
     });
   },
-  loginPost: function (req, res) {
+  loginGet: function (req, res) {
     const usuario = req.body.usuario;
     const password = req.body.password;
 
