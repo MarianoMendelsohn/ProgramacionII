@@ -1,4 +1,3 @@
-const { comentarios } = require('../data/data');
 const data = require('../data/data');
 
 const productosControllers = {
