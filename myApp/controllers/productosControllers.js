@@ -19,7 +19,7 @@ const productosControllers = {
     },
     agregarProducto: function(req, res){
       return res.render('agregarProducto', {
-        lista: data.productos,
+        listaBrian: data.productos,
         usuario: data.usuario
       }) 
       //idem anterior
@@ -27,7 +27,7 @@ const productosControllers = {
     resultadoProducto: function (req, res){
       return res.render('resultadoBusqueda',{})
     },
-   
+  
 }
 
 
