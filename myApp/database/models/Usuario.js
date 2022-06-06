@@ -1,4 +1,4 @@
-module.exports=()=>{
+module.exports=(sequelize, DataTypes)=>{
 
     let cols = {
 
