@@ -29,6 +29,6 @@ module.exports=()=>{
     let config = {
         tablename: 'productos',
     };
-    const Comentario = sequelize.define ("Producto",cols, config);
+    const Producto = sequelize.define ("Producto",cols, config);
     return Producto;
 }
