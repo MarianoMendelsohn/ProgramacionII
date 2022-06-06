@@ -1,9 +1,18 @@
-const data = require("../data/data");
-const db =require('../database/models/Usuario')
+const db =require('../database/models')
+const user = db.Usuario;
 
 const usuariosController = {
-  index:(req,res)=>{
-    return res.redirect('/')
+  index: (req, res) => {
+    db.Usuario.findAll({
+        /* where : [{awards: 1}, {length: 120}], */
+        /* order : [["title", "ASC"]],
+        limit : 5,
+        offset: 4 */
+       
+      })
+      .then((result) => {
+        return res.send(result);
+      });
   },
   registro: function (req, res) {
     res.render("registro", {

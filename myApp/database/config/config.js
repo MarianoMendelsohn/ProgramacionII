@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "burgerly_db",
+    "database": "burgerfly_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
