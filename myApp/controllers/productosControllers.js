@@ -1,8 +1,10 @@
 const data = require('../data/data');
 
+
 const productosControllers = {
 
     index:function(req, res ) {
+
         return res.render('index',{
           lista: data.productos
         }); // metodo . con parametros request y response donde vamos a renderizar vista index. Ademá de eso contamos con un objeto literal que nos va a traer del modulo de datos la información solicitada.

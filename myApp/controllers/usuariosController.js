@@ -1,6 +1,10 @@
 const data = require("../data/data");
+const db =require('../database/models/Usuario')
 
 const usuariosController = {
+  index:(req,res)=>{
+    return res.redirect('/')
+  },
   registro: function (req, res) {
     res.render("registro", {
       usuario: data.usuario,
