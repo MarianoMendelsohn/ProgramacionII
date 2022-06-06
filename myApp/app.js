@@ -49,4 +49,12 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+// Info para todas las vistas
+app.use(function (req, res, next) {
+  if (req.session.usuarioLogueado != undefined) {
+    res.locals.user = req.session.usuarioLogueado
+  }
+  return next();
+});
+
 module.exports = app;
