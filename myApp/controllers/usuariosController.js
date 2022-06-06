@@ -36,6 +36,13 @@ const usuariosController = {
       comentarios: data.comentarios,
     });
   },
+  //create: (req, res) => {
+  //  return res.render('registro')
+  //}
+  //store: function (req, res) {
+  //  let info = req.body;
+  //  let usuario = 
+  //}
 };
 
 module.exports = usuariosController;

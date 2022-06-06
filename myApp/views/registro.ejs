@@ -6,7 +6,7 @@
 		<%- include('./partials/header') %>
 		<div class="bg-img">
 		
-			<form action="/action_page.php" class="formulario">
+			<form action="/register/store" class="formulario" method="post" name="registracion">
 			  <h1></h1>
 			 
 		  
@@ -16,7 +16,7 @@
 			  <label for="name"><b>usuario</b></label>
 			  <input type="text" placeholder="username" name="username" required>
 
-			  <label for="psw"><b>Password</b></label>
+			  <label for="psw"><b>Password</b></label> <!-- Post -->
    	 		  <input type="password" placeholder="Enter Password" name="psw" required>
 
 			 <label for="f-de-nac"><b>Fecha de Nacimiento</b></label>

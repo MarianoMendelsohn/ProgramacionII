@@ -46,7 +46,7 @@ FOREIGN KEY (id_usuarios_seguido) REFERENCES usuarios(id),
 FOREIGN KEY (id_usuarios_seguidor) REFERENCES usuarios(id)
 );
 
-insert into usuarios (username,imagen_perfil,email,password,birthdate)
+INSERT INTO usuarios (username,imagen_perfil,email,password,birthdate)
 values ('maurooso','','mauro@gmail.com','hola123','2003-09-12'),
 ('marianom','','marianom@gmail.com','hola123','2004-10-09'),
 ('franco','','francoo@gmail.com','hola123','200-09-12');
