@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     usuario_id: {
         type: DataTypes.INTEGER
-    }
+    },
+    createdAt: {
+        type: DataTypes.DATE
+    },
     };
     let config = { 
         tableName: "comentarios",
