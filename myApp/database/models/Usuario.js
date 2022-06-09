@@ -22,6 +22,13 @@ module.exports=(sequelize, DataTypes)=>{
         birthdate: {
             type: DataTypes.DATE
         },
+        createdAt: {
+            type: DataTypes.DATE
+        },
+        updateAt: {
+            type: DataTypes.DATE
+        }
+
     }
     let config = {
         tableName : "usuarios",
