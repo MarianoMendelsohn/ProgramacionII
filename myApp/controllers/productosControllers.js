@@ -1,12 +1,17 @@
-const data = require('../data/data');
+const { sequelize } = require('../database/models');
+const db =require('../database/models')
+const product = db.Producto;
 
 
 const productosControllers = {
 
     index:function(req, res ) {
+      db.Producto.findAll({
+        order: sequelize.lista('index')
+      })
 
         return res.render('index',{
-          lista: data.productos
+          lista: db.Producto
         }); // metodo . con parametros request y response donde vamos a renderizar vista index. Ademá de eso contamos con un objeto literal que nos va a traer del modulo de datos la información solicitada.
       },
     detalleProducto: function (req, res){
