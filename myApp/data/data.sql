@@ -28,6 +28,11 @@ ADD COLUMN `createdAt` DATE NOT NULL AFTER `createdAt`;
 
 ALTER TABLE `burgerfly_db`.`usuarios` 
 ADD COLUMN `updateAt` DATE NOT NULL AFTER `updateAt`;
+INSERT INTO `usuarios` (`id`, `username`, `imagen_perfil`, `email`, `password`, `birthdate`, `createdAt`, `updateAt`) VALUES
+(1, 'maurooso', '', 'mauro@gmail.com', 'hola123', '2003-09-12', NULL, NULL),
+(2, 'marianom', '', 'marianom@gmail.com', 'hola123', '2004-10-09', NULL, NULL),
+(3, 'franco', '', 'francoo@gmail.com', 'hola123', '0200-09-12', NULL, NULL);
+
 
 CREATE TABLE comentarios(
 id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
