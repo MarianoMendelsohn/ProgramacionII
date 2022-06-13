@@ -1,4 +1,6 @@
- const data = require('../data/data')
+const db = require ('../database/models');
+const sequelize = require ('sequelize');
+
 const indexController = {
 
     index:function(req, res ) {
