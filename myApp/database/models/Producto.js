@@ -20,19 +20,21 @@ module.exports= (sequelize, DataTypes)=>{
         descripcion_producto:{
             type: DataTypes.STRING
         },
-
+        fecha_creacion: {
+            type: DataTypes.DATE
+        },
+        updateAt: {
+            type: DataTypes.DATE
+        },
+        
         usuario_id: {
             type: DataTypes.INTEGER
         },
         comentario_id: {
             type: DataTypes.INTEGER
         },
-        createdAt: {
-            type: DataTypes.DATE
-        },
-        updateAt: {
-            type: DataTypes.DATE
-        }
+        
+
     }
     let config = {
         tablename: 'productos',
