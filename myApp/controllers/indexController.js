@@ -4,10 +4,12 @@ const sequelize = require ('sequelize');
 const indexController = {
 
     index:function(req, res ) {
-      res.render('index',{
-        lista : data.productos
-      });
-    }
+      let producto = db.Producto.findAll({
+        order:[
+          ['createdAt','DESC']
+        ],
+      })
+    },
     
 }
 module.exports = indexController
