@@ -1,5 +1,9 @@
 module.exports=(sequelize, DataTypes)=>{
 
+    const Usuario = sequelize.define ('Usuario', cols, config);
+
+    let alias = "Usuarios";
+
     let cols = {
 
         id: {
@@ -35,6 +39,6 @@ module.exports=(sequelize, DataTypes)=>{
         timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
         underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
     };
-    const Usuario = sequelize.define ('Usuario', cols, config);
+  
     return Usuario;
 }

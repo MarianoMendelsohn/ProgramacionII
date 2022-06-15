@@ -1,6 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
 
-   
+    const Comentario = sequelize.define("Comentario", cols, config);
+
+    let alias = "Comentarios";
+    
     let cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -26,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
         
     };
-    const Comentario = sequelize.define("Comentario", cols, config);
+
 return Comentario;
 
 };
