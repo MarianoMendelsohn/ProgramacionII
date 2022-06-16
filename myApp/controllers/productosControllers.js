@@ -17,8 +17,8 @@ const productosControllers = {
     detalleProducto: function (req, res){
       let idProducto = req.params.id
       return res.render('product',{
-        producto: data.productos[idProducto],
-        comentarios: data.comentarios
+        producto: db.Producto[idProducto],
+        comentarios: db.Comentario
       }) // letidproductoreqparams: declaramos la variable que despues vamos a usar en el return.
       // producto: trae los productos con su id.
       // comentarios: data trae los comentarios. 
@@ -26,8 +26,8 @@ const productosControllers = {
     },
     agregarProducto: function(req, res){
       return res.render('agregarProducto', {
-        listaBrian: data.productos,
-        usuario: data.usuario
+        lista: db.Producto,
+        usuario: db.Usuario
       }) 
       //idem anterior
     },
