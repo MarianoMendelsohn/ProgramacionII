@@ -1,9 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 
     const Comentario = sequelize.define("Comentario", cols, config);
-
-    let alias = "Comentarios";
-    
+ 
     let cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -13,15 +11,19 @@ module.exports = (sequelize, DataTypes) => {
        texto_comentario: {
            type: DataTypes.STRING
        },
-       producto_id: {
-        type: DataTypes.INTEGER
-    },
-    usuario_id: {
-        type: DataTypes.INTEGER
-    },
-    createdAt: {
+       created_at: {
         type: DataTypes.DATE
     },
+    update_at: {
+        type: DataTypes.DATE
+    },
+       id_producto: {
+        type: DataTypes.INTEGER
+    },
+    id_usuario: {
+        type: DataTypes.INTEGER
+    },
+
     };
     let config = { 
         tableName: "comentarios",
@@ -29,6 +31,17 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
         
     };
+    Comentario.associate = function (models) {
+        Comentario.belongsTo(models.Producto, {
+            foreignKey: 'producto_id',
+            as: 'producto'
+        })
+        
+        Comentario.belongsTo(models.Usuario, { 
+            foreignKey: 'usuario_id',
+            as: 'usuario'
+        })
+    }
 
 return Comentario;
 
