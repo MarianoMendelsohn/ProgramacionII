@@ -1,8 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Comentario = sequelize.define("Comentario", cols, config);
-
-    let alias = "Comentarios";
     
     let cols = {
         id: {
@@ -12,17 +9,18 @@ module.exports = (sequelize, DataTypes) => {
         },
        texto_comentario: {
            type: DataTypes.STRING
-       },
+        },
        producto_id: {
         type: DataTypes.INTEGER
-    },
-    usuario_id: {
+        },
+        usuario_id: {
         type: DataTypes.INTEGER
-    },
-    createdAt: {
+        },
+        createdAt: {
         type: DataTypes.DATE
-    },
+        }
     };
+
     let config = { 
         tableName: "comentarios",
         timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
@@ -30,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         
     };
 
+const Comentario = sequelize.define( 'Comentario' , cols, config);
 return Comentario;
 
 };
