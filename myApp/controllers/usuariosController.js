@@ -3,7 +3,7 @@ const user = db.Usuario;
 
 
 const usuariosController = {
-  index: (req, res) => {
+   index: (req, res) => {
     db.Usuario.findAll({
         /* where : [{awards: 1}, {length: 120}], */
         /* order : [["title", "ASC"]],
@@ -59,9 +59,9 @@ const usuariosController = {
      // res.render('registro', {title:'Registración', error: false, message: 'El nombre de usuario o email ya existe'})
     //} *
     
-  },
   
-    .then(function (usuario) {
+  
+    .then (function (usuario) {
       if(req.body.email == ""){
           res.render('registro', {title: 'Registración', error: true, message:'El email no puede estar vacío'});
       } else if (req.body.password == ""){
@@ -70,6 +70,7 @@ const usuariosController = {
           res.render('registro', {title: 'Registración', error: true, message:'El nombre de usuario o el email ya existe. Elija otro.'});
       } else if(usuario == null){
           let password = bcrypt.hashSync(req.body.password, 10);
+          
 
           db.Usuario.create({
               nombre: req.body.nombre,
@@ -82,11 +83,11 @@ const usuariosController = {
       }else {
           res.redirect('/usuario/registro?error=true');
       }
-      
-  })
-  }
+     
+  }),
+  
 
-  loginForm: function(req,res){
+  loginForm: function (req,res){
     if (req.session.usuarioLogueado != undefined) {
       res.redirect("/");
     }

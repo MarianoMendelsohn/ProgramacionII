@@ -1,6 +1,8 @@
 module.exports= (sequelize, DataTypes)=>{
 
     const Producto = sequelize.define ("Productos",cols, config);
+
+    let alias = 'Producto'
     
     let cols = {
 

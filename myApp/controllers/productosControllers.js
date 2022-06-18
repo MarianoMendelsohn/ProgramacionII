@@ -51,7 +51,7 @@ const productosControllers = {
 
   db.Producto.create({
     titulo_producto: req.body.titulo_producto,
-    imagen_producto: req.file ?
+    // imagen_producto: req.file ?
     descripcion_producto: req.body.descripcion_producto,
     id_usuario: id_usuario,
   })
@@ -88,7 +88,7 @@ const productosControllers = {
  },
  
  cargarEditar: function (req,res){
-  if(req.session.usuarioLogueado == undefinded){
+  if (req.session.usuarioLogueado == undefined ){
     res.redirect("/");
   }
 
@@ -103,6 +103,7 @@ const productosControllers = {
       res.redirect('/todosLosProductos')
     })
  },
+
  borrarProducto: function (req,res) {
   if (req.session.usuarioLogueado == undefined) {
     res.redirect("/");
@@ -110,7 +111,7 @@ const productosControllers = {
   let id = req.params.id;
   db.Producto.findByPk(id)
   .then(function(producto){
-    res.render ('borrarProducto', {producto: producto, title: 'Borrar producto'})
+    res.render ('detalleProducto', {producto: producto, title: 'Borrar producto'})
   })
  },
  borrarConfirm: function (req,res){
@@ -124,7 +125,7 @@ const productosControllers = {
     }
   })
   .then(function(output){
-    res.redirect('/productos/misProductos')
+    res.redirect('/usuarios/perfil')
   })
  }
 
