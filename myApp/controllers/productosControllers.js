@@ -58,7 +58,76 @@ const productosControllers = {
   //.then (Producto =>{
   //  return res.redirect('/todosLosProductos');
  // })
- }   
+ },
+ 
+ 
+ misProductos: function (req,res) {
+  if (req.session.usuarioLogueado == undefined){
+    res.redirect("/")
+  }
+
+  db.Producto.findAll(
+    {
+      where: {id_usuario: req.session.usuarioLogueado.id},
+      order: [['updateAt', 'DESC']]
+    }
+  )
+  .then(function (productos){
+    res.render('misProductos', {productos: productos, title: 'Mis Productos'})
+  })
+ },
+ editarProducto: function (req,res){
+  if (req.session.usuarioLogueado == undefined){
+    res.redirect("/");
+  }
+  let id = req.params.id;
+  db.Producto.findByPk(id)
+  .then(function(producto){
+    res.render('editarProducto', {producto: producto, tittle: 'Editar producto'})
+  })
+ },
+ 
+ cargarEditar: function (req,res){
+  if(req.session.usuarioLogueado == undefinded){
+    res.redirect("/");
+  }
+
+  let id = req.params.id;
+  db.Producto.update(req.body,
+    {
+      where: {
+        id:id
+      }
+    })
+    .then(function (output){
+      res.redirect('/todosLosProductos')
+    })
+ },
+ borrarProducto: function (req,res) {
+  if (req.session.usuarioLogueado == undefined) {
+    res.redirect("/");
+  }
+  let id = req.params.id;
+  db.Producto.findByPk(id)
+  .then(function(producto){
+    res.render ('borrarProducto', {producto: producto, title: 'Borrar producto'})
+  })
+ },
+ borrarConfirm: function (req,res){
+  if (req.session.usuarioLogueado == undefined){
+    res.redirect("/");
+  }
+  let id = req.params.id;
+  db.Producto.destroy({
+    where: {
+      id: id
+    }
+  })
+  .then(function(output){
+    res.redirect('/productos/misProductos')
+  })
+ }
+
 }
 
 

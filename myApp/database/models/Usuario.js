@@ -2,8 +2,6 @@ module.exports=(sequelize, DataTypes)=>{
 
     const Usuario = sequelize.define ('Usuario', cols, config);
 
-    let alias = "Usuarios";
-
     let cols = {
 
         id: {
