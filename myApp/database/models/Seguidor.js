@@ -3,7 +3,7 @@ module.exports = (sequelize,DataTypes) => {
         id:{
             type:DataTypes.INTEGER,
             autoIncrement: true,
-            primaryKet: true,
+            primaryKey: true,
         },
         usuarios_seguidos_id:{
             type:DataTypes.INTEGER
@@ -27,7 +27,7 @@ module.exports = (sequelize,DataTypes) => {
             timestamps: false
         }),
         Seguidor.belongsTo(models.Usuario, {
-            as: 'Usuarios',
+            as: 'Usuarios2',
             foreignKey: 'usuarios_seguidores_id',
             timestamps: false
         })
