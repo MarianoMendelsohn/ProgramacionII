@@ -174,6 +174,28 @@ foreign key (seguidores_id) references seguidores (seguidor_id),
 seguidos_id int unsigned,
 foreign key (seguidos_id) references seguidores (seguidos_id)
 );
+
+ALTER TABLE `burgerfly_db`.`productos` 
+ADD INDEX `usuarios_id_idx` (`usuarios_id` ASC);
+;
+ALTER TABLE `burgerfly_db`.`productos` 
+ADD CONSTRAINT `usuarios_id`
+  FOREIGN KEY (`usuarios_id`)
+  REFERENCES `burgerfly_db`.`usuarios` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+
+
+
+
+
 CREATE TABLE productos (
 id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 titulo_producto VARCHAR(150) NOT NULL,
