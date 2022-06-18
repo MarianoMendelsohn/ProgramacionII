@@ -2,13 +2,13 @@ const db =require('../database/models')
 const user = db.Usuario;
 
 
-const usuariosController = {
+const usuariosController = { 
    index: (req, res) => {
     db.Usuario.findAll({
-        /* where : [{awards: 1}, {length: 120}], */
-        /* order : [["title", "ASC"]],
+         where : [{awards: 1}, {length: 120}], 
+         order : [["title", "ASC"]],
         limit : 5,
-        offset: 4 */
+        offset: 4 
        
       })
       .then((result) => {
@@ -17,12 +17,12 @@ const usuariosController = {
   },
 
 
+}
+module.exports = usuariosController; 
 
 
 
-
-
-  registro: (req, res) => {
+  /*registro: (req, res) => {
     if (req.session.usuarioIngresado != null) {
         return res.redirect("/")
     } else {
@@ -46,7 +46,7 @@ const usuariosController = {
     .then((result)=>{
       return res.redirect('/usuarios/login')
     })
-  }
+  },
 
 
   
@@ -60,7 +60,7 @@ const usuariosController = {
     //} *
     
   
-  // DEsde esa promesa tira error
+  
     //.then (function (usuario) {
       //if(req.body.email == ""){
         //  res.render('registro', {title: 'Registración', error: true, message:'El email no puede estar vacío'});
@@ -72,21 +72,21 @@ const usuariosController = {
         //  let password = bcrypt.hashSync(req.body.password, 10);
           
 
-          //db.Usuario.create({
-              //nombre: req.body.nombre,
-              //email: req.body.email,
-            //  password: password,
+        //  db.Usuario.create({
+          //    nombre: req.body.nombre,
+            //  email: req.body.email,
+             // password: password,
           //})
           //.then(function () {
-            //  res.redirect('/usuario/login');
+            ///  res.redirect('/usuario/login');
           //})
-     // }else {
-      //    res.redirect('/usuario/registro?error=true');
+      //}else {
+        //  res.redirect('/usuario/registro?error=true');
       //}
      
   //}),
   
-,
+
   loginForm: function (req,res){
     if (req.session.usuarioLogueado != undefined) {
       res.redirect("/");
@@ -203,6 +203,6 @@ borrarComentario: function (req,res) {
     });
   },
 
-};
+};*/
 
-module.exports = usuariosController;
+
