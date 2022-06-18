@@ -2,13 +2,13 @@ const db =require('../database/models')
 const user = db.Usuario;
 
 
-const usuariosController = {
+const usuariosController = { 
    index: (req, res) => {
     db.Usuario.findAll({
-        /* where : [{awards: 1}, {length: 120}], */
-        /* order : [["title", "ASC"]],
+         where : [{awards: 1}, {length: 120}], 
+         order : [["title", "ASC"]],
         limit : 5,
-        offset: 4 */
+        offset: 4 
        
       })
       .then((result) => {
@@ -17,12 +17,12 @@ const usuariosController = {
   },
 
 
+}
+module.exports = usuariosController; 
 
 
 
-
-
-  registro: (req, res) => {
+  /*registro: (req, res) => {
     if (req.session.usuarioIngresado != null) {
         return res.redirect("/")
     } else {
@@ -46,7 +46,7 @@ const usuariosController = {
     .then((result)=>{
       return res.redirect('/usuarios/login')
     })
-  }
+  },
 
 
   
@@ -61,30 +61,30 @@ const usuariosController = {
     
   
   
-    .then (function (usuario) {
-      if(req.body.email == ""){
-          res.render('registro', {title: 'Registración', error: true, message:'El email no puede estar vacío'});
-      } else if (req.body.password == ""){
-          res.render('registro', {title: 'Registración', error: true, message:'La contraseña no puede estar vacía'});
-      } else if (usuario != null){
-          res.render('registro', {title: 'Registración', error: true, message:'El nombre de usuario o el email ya existe. Elija otro.'});
-      } else if(usuario == null){
-          let password = bcrypt.hashSync(req.body.password, 10);
+    //.then (function (usuario) {
+      //if(req.body.email == ""){
+        //  res.render('registro', {title: 'Registración', error: true, message:'El email no puede estar vacío'});
+      //} else if (req.body.password == ""){
+        //  res.render('registro', {title: 'Registración', error: true, message:'La contraseña no puede estar vacía'});
+      //} else if (usuario != null){
+        //  res.render('registro', {title: 'Registración', error: true, message:'El nombre de usuario o el email ya existe. Elija otro.'});
+      //} else if(usuario == null){
+        //  let password = bcrypt.hashSync(req.body.password, 10);
           
 
-          db.Usuario.create({
-              nombre: req.body.nombre,
-              email: req.body.email,
-              password: password,
-          })
-          .then(function () {
-              res.redirect('/usuario/login');
-          })
-      }else {
-          res.redirect('/usuario/registro?error=true');
-      }
+        //  db.Usuario.create({
+          //    nombre: req.body.nombre,
+            //  email: req.body.email,
+             // password: password,
+          //})
+          //.then(function () {
+            ///  res.redirect('/usuario/login');
+          //})
+      //}else {
+        //  res.redirect('/usuario/registro?error=true');
+      //}
      
-  }),
+  //}),
   
 
   loginForm: function (req,res){
@@ -203,6 +203,6 @@ borrarComentario: function (req,res) {
     });
   },
 
-};
+};*/
 
-module.exports = usuariosController;
+

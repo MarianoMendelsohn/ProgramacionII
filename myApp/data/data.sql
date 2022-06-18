@@ -54,6 +54,38 @@ FOREIGN KEY (id_usuarios_seguido) REFERENCES usuarios(id),
 FOREIGN KEY (id_usuarios_seguidor) REFERENCES usuarios(id)
 );
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 insert into usuarios (username, imagen_perfil, email, password, birthdate, created_at, update_at) 
 values ('kundo','','kundo@gmail.com', 'hola123','1999-03-06','2022-04-04','2022-05-05'),
 ('marian','','marian@gmail.com','hola123','2003-03-25','2022-04-04','2022-05-05'),
@@ -122,3 +154,53 @@ values ('nooo, tremenda!!', '2022-06-15','2022-06-15'),
 ('OMG', '2022-06-15','2022-06-15'),
 ('beautiful burgerrrr!!', '2022-06-15','2022-06-15'),
 ('esto es un delirio hermano', '2022-06-15','2022-06-15');
+
+
+
+
+CREATE TABLE usuarios (
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(150) NOT NULL,
+imagen_perfil VARCHAR(500) NOT NULL,
+email VARCHAR(200) UNIQUE NOT NULL,
+password VARCHAR(20) NOT NULL,
+birthdate DATE NOT NULL,
+created_at DATE,
+update_at Datetime,
+producto_id int unsigned,
+foreign key (producto_id) references productos (id),
+seguidores_id int unsigned,
+foreign key (seguidores_id) references seguidores (seguidor_id),
+seguidos_id int unsigned,
+foreign key (seguidos_id) references seguidores (seguidos_id)
+);
+CREATE TABLE productos (
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+titulo_producto VARCHAR(150) NOT NULL,
+imagen_producto VARCHAR(500) NOT NULL,
+descripcion_producto VARCHAR (300) NOT NULL,
+created_at DATETIME,
+update_at Datetime,
+usuarios_id int unsigned,
+foreign key (usuarios_id) references usuarios (id),
+comentarios_id int unsigned,
+foreign key (comentarios_id) references comentarios (id)
+
+);
+CREATE TABLE comentarios(
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+texto_comentario VARCHAR(500),
+productos_id INT UNSIGNED,
+usuarios_id INT UNSIGNED,
+created_at Datetime,
+FOREIGN KEY (productos_id) REFERENCES productos(id),
+FOREIGN KEY (usuarios_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE seguidores (
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+usuarios_seguidos_id INT UNSIGNED,
+usuarios_seguidores_id INT UNSIGNED,
+FOREIGN KEY (usuarios_seguidos_id) REFERENCES usuarios(id),
+FOREIGN KEY (usuarios_seguidores_id) REFERENCES usuarios(id)
+);

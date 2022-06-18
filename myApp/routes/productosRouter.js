@@ -7,7 +7,7 @@ const productosControllers =require('../controllers/productosControllers')
 router.get('/detalleProducto/:id', productosControllers.detalleProducto)
 router.get('/agregarProducto', productosControllers.agregarProducto)
 router.get('/editarProducto', productosControllers.editarProducto)
-router.get('/resultadoProducto', productosControllers.resultadoProducto)
+//router.get('/resultadoProducto', productosControllers.resultadoProducto)
 
 
 
