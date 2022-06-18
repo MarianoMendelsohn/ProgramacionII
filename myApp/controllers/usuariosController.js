@@ -3,7 +3,7 @@ const user = db.Usuario;
 
 
 const usuariosController = {
-  index: (req, res) => {
+   index: (req, res) => {
     db.Usuario.findAll({
         /* where : [{awards: 1}, {length: 120}], */
         /* order : [["title", "ASC"]],
@@ -15,29 +15,53 @@ const usuariosController = {
         return res.send(result);
       });
   },
-  registro: function (req, res) {
-    if (req.session.usuarioLogueado != undefined){
-      res.redirect("/");
+
+
+
+
+
+
+
+  registro: (req, res) => {
+    if (req.session.usuarioIngresado != null) {
+        return res.redirect("/")
+    } else {
+        return res.render("register")
     }
-    if (req.query.error){
-      res.render('registro', {title: 'Registración', error: true, message:'El nombre de usuario o email ya existe'});
-    }else {
-      res.render('registro', {title:'Registración', error: false, message: 'El nombre de usuario o email ya existe'})
+    
+},
+  store: function(req, res, next){
+    let info=req.body;
+    let passEncriptada = bcryptjs.hashSync(info.password,10);
+    let UsuarioRegistrado ={
+      username: info.username,
+      email: info.email,
+      password: passEncriptada,
+      imagen_perfil: info.imagen_perfil,
+      birthdate: info.birthdate,
+      created_at: new Date (),
+      update_at: new Date (),
     }
-  },
-  registroCheck: function (req,res){
-    if (req.session.usuarioLogueado != undefined){
-      res.redirect("/");
-    }
-    db.Usuario.findOne({
-      where:{
-        [op.or]:[
-            {email: req.body.email},
-            {nombre: req.body.nombre}
-        ]
-      }
+    user.create(UsuarioRegistrado)
+    .then((result)=>{
+      return res.redirect('/usuarios/login')
     })
-    .then(function (usuario) {
+  }
+
+
+  
+
+ 
+
+   // if (req.query.error){
+    //  res.render('registro', {title: 'Registración', error: true, message:'El nombre de usuario o email ya existe'});
+    //}else {
+     // res.render('registro', {title:'Registración', error: false, message: 'El nombre de usuario o email ya existe'})
+    //} *
+    
+  
+  
+    .then (function (usuario) {
       if(req.body.email == ""){
           res.render('registro', {title: 'Registración', error: true, message:'El email no puede estar vacío'});
       } else if (req.body.password == ""){
@@ -46,6 +70,7 @@ const usuariosController = {
           res.render('registro', {title: 'Registración', error: true, message:'El nombre de usuario o el email ya existe. Elija otro.'});
       } else if(usuario == null){
           let password = bcrypt.hashSync(req.body.password, 10);
+          
 
           db.Usuario.create({
               nombre: req.body.nombre,
@@ -58,11 +83,11 @@ const usuariosController = {
       }else {
           res.redirect('/usuario/registro?error=true');
       }
-      
-  })
-  },
+     
+  }),
+  
 
-  loginForm: function(req,res){
+  loginForm: function (req,res){
     if (req.session.usuarioLogueado != undefined) {
       res.redirect("/");
     }
@@ -162,7 +187,12 @@ borrarComentario: function (req,res) {
 
   editarPerfil: function (req, res) {
     res.render("editarPerfil", {
-      usuario: data.usuario,
+      usuario: db.Usuario,
+      username: req.body.username,
+      email:req.body.email,
+      password:req.body.password,
+      birthdate:req.body.birthdate,
+
     });
   },
   perfil: function (req, res) {

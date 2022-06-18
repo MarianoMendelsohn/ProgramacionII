@@ -5,37 +5,135 @@ const Product = db.Producto
 
 const productosControllers = {
 
-    index:function(req, res ) {
-      db.Producto.findAll({
-        order: sequelize.lista('index')
-      })
 
-        return res.render('index',{
-          lista: db.Producto
-        }); // metodo . con parametros request y response donde vamos a renderizar vista index. Ademá de eso contamos con un objeto literal que nos va a traer del modulo de datos la información solicitada.
-      },
-    detalleProducto: function (req, res){
-      let idProducto = req.params.id
-      return res.render('product',{
-        producto: data.productos[idProducto],
-        comentarios: data.comentarios
-      }) // letidproductoreqparams: declaramos la variable que despues vamos a usar en el return.
-      // producto: trae los productos con su id.
-      // comentarios: data trae los comentarios. 
-      // id producto es la asignación al producto solicitado.  ( al modulo data lo requerimos arriba en const= data require)
+
+      detalleProducto: function (req, res){
+      let idProducto = req.params.id;
+      db.Producto.findByPk(id, {
+        indlcude: [{all:true,nested: true}]
+      })
+      .then(function (unProducto){
+        res.render('detalle',{UnProducto: unProducto, title: unProducto.nombre})
+      })
     },
-    agregarProducto: function(req, res){
-      return res.render('agregarProducto', {
-        listaBrian: data.productos,
-        usuario: data.usuario
-      }) 
-      //idem anterior
+
+    agregarComentario: function (req,res) {
+      if (req.session.usuarioLogueado == undefined){
+        res.redirect("/");
+      }
+      let id_producto = req.params.id;
+      let id_usuario = req.session.usuarioLogueado.id;
+
+      db.Comentario.create({
+        texto_comentario: req.body.texto_comentario,
+        id_usuario: id_usuario,
+        id_producto: id_producto,
+      })
+      .then(function () {
+        res.redirect('/detalleProducto/:id'+id_producto)
+      })
     },
-    resultadoProducto: function (req, res){
-      return res.render('resultadoBusqueda',{})
-    },
-  
+    
+
+ agregarProducto: function (req, res){
+  if (req.session.usuarioLogueado == undefined){
+    res.redirect("/");
+  }
+  res.render('agregarProducto', { title:'Agregar Producto'});
+ },
+ 
+ cargarProducto: function (req,res) {
+  if (req.session.usuarioLogueado == undefined){
+    res.redirect("/");
+  }
+  let id_producto = req.params.id;
+  let id_usuario = req.session.usuarioLogueado.id;
+
+  db.Producto.create({
+    titulo_producto: req.body.titulo_producto,
+    // imagen_producto: req.file ?
+    descripcion_producto: req.body.descripcion_producto,
+    id_usuario: id_usuario,
+  })
+  //.then (Producto =>{
+  //  return res.redirect('/todosLosProductos');
+ // })
+ },
+ 
+ 
+ misProductos: function (req,res) {
+  if (req.session.usuarioLogueado == undefined){
+    res.redirect("/")
+  }
+
+  db.Producto.findAll(
+    {
+      where: {id_usuario: req.session.usuarioLogueado.id},
+      order: [['updateAt', 'DESC']]
+    }
+  )
+  .then(function (productos){
+    res.render('misProductos', {productos: productos, title: 'Mis Productos'})
+  })
+ },
+ editarProducto: function (req,res){
+  if (req.session.usuarioLogueado == undefined){
+    res.redirect("/");
+  }
+  let id = req.params.id;
+  db.Producto.findByPk(id)
+  .then(function(producto){
+    res.render('editarProducto', {producto: producto, tittle: 'Editar producto'})
+  })
+ },
+ 
+ cargarEditar: function (req,res){
+  if (req.session.usuarioLogueado == undefined ){
+    res.redirect("/");
+  }
+
+  let id = req.params.id;
+  db.Producto.update(req.body,
+    {
+      where: {
+        id:id
+      }
+    })
+    .then(function (output){
+      res.redirect('/todosLosProductos')
+    })
+ },
+
+ borrarProducto: function (req,res) {
+  if (req.session.usuarioLogueado == undefined) {
+    res.redirect("/");
+  }
+  let id = req.params.id;
+  db.Producto.findByPk(id)
+  .then(function(producto){
+    res.render ('detalleProducto', {producto: producto, title: 'Borrar producto'})
+  })
+ },
+ borrarConfirm: function (req,res){
+  if (req.session.usuarioLogueado == undefined){
+    res.redirect("/");
+  }
+  let id = req.params.id;
+  db.Producto.destroy({
+    where: {
+      id: id
+    }
+  })
+  .then(function(output){
+    res.redirect('/usuarios/perfil')
+  })
+ }
+
 }
+
+
+  
+
 
 
 module.exports = productosControllers

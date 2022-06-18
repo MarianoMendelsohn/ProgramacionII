@@ -12,24 +12,22 @@
 			
 		<h2 class="col-12"> 
 			<div class="editarPerfilForm">
-			    <form action="/action_page.php" class="formulario">
+			    <form action="/action_page.php" method="post" class="formulario">
 					<h1></h1>
 				   
 				
 					<label for="mail"><b>mail</b></label>
-					<input type="text" placeholder="Correo electronico" name="" required>
+					<input type="text" placeholder="Correo electronico" name="email" required>
 		  
 					<label for="name"><b>Usuario</b></label>
-					<input type="text" placeholder="Username" name="desc" required>
+					<input type="text" placeholder="Username" name="username" required>
 	  
 					<label for="psw"><b>Contraseña</b></label>
-						<input type="password" placeholder="Contraseña" name="psw" required>
+						<input type="password" placeholder="Contraseña" name="password" required>
 	  
 				   <label for="f-de-nac"><b>Fecha de Nacimiento</b></label>
-				   <input type="date" placeholder="Fecha de Nacimiento" name="desc" required>
+				   <input type="date" placeholder="Fecha de Nacimiento" name="birthdate" required>
 				
-					<label for="dni"><b>DNI</b></label>
-					<input type="number" placeholder="DNI" name="desc" required>
 	  
 					<label for="fdp"><b>Foto de Perfil</b></label>
 						<input type="file" placeholder="Foto de Perfil" name="fdp" required>
