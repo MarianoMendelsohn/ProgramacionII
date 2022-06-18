@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
        texto_comentario: {
            type: DataTypes.STRING
         },
-       producto_id: {
+       productos_id: {
         type: DataTypes.INTEGER
         },
-        usuario_id: {
+        usuarios_id: {
         type: DataTypes.INTEGER
         },
-        createdAt: {
+        created_at: {
         type: DataTypes.DATE
         }
     };

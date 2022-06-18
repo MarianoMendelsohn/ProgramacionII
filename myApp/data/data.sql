@@ -1,90 +1,5 @@
 
-use burgerfly_db
-
-CREATE TABLE productos (
-id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-titulo_producto VARCHAR(150) NOT NULL,
-imagen_producto VARCHAR(500) NOT NULL,
-descripcion_producto VARCHAR (300) NOT NULL,
-fecha_creacion DATETIME NOT NULL
-);
-ALTER TABLE `burgerfly_db`.`productos` 
-ADD COLUMN `createdAt` DATE NOT NULL AFTER `createdAt`;
-
-ALTER TABLE `burgerfly_db`.`productos` 
-ADD COLUMN `updateAt` DATE NOT NULL AFTER `updateAt`;
-DROP COLUMN 'fecha_creacion' DATETIME NOT NULL;
-
-CREATE TABLE usuarios (
-id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-username VARCHAR(150) NOT NULL,
-imagen_perfil VARCHAR(500) NOT NULL,
-email VARCHAR(200) UNIQUE NOT NULL,
-password VARCHAR(20) NOT NULL,
-birthdate DATE NOT NULL
-);
-ALTER TABLE `burgerfly_db`.`usuarios` 
-ADD COLUMN `createdAt` DATE NOT NULL AFTER `createdAt`;
-
-ALTER TABLE `burgerfly_db`.`usuarios` 
-ADD COLUMN `updateAt` DATE NOT NULL AFTER `updateAt`;
-INSERT INTO `usuarios` (`id`, `username`, `imagen_perfil`, `email`, `password`, `birthdate`, `createdAt`, `updateAt`) VALUES
-(1, 'maurooso', '', 'mauro@gmail.com', 'hola123', '2003-09-12', NULL, NULL),
-(2, 'marianom', '', 'marianom@gmail.com', 'hola123', '2004-10-09', NULL, NULL),
-(3, 'franco', '', 'francoo@gmail.com', 'hola123', '0200-09-12', NULL, NULL);
-
-
-CREATE TABLE comentarios(
-id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-texto_comentario VARCHAR(500),
-id_product INT UNSIGNED,
-id_usuarios INT UNSIGNED,
-FOREIGN KEY (id_product) REFERENCES productos(id),
-FOREIGN KEY (id_usuarios) REFERENCES usuarios(id)
-);
-ALTER TABLE `burgerfly_db`.`comentarios` 
-ADD COLUMN `createdAt` DATE NOT NULL AFTER `createdAt`;
-
-
-CREATE TABLE seguidores (
-id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-id_usuarios_seguido INT UNSIGNED,
-id_usuarios_seguidor INT UNSIGNED,
-FOREIGN KEY (id_usuarios_seguido) REFERENCES usuarios(id),
-FOREIGN KEY (id_usuarios_seguidor) REFERENCES usuarios(id)
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+use burgerfly_db;
 
 insert into usuarios (username, imagen_perfil, email, password, birthdate, created_at, update_at) 
 values ('kundo','','kundo@gmail.com', 'hola123','1999-03-06','2022-04-04','2022-05-05'),
@@ -118,43 +33,51 @@ values ('Big Mac', '', 'El clásico de siempre, esta vez modernizado','2022-06-1
 ('Uruguay', '', 'Hamburguesa de nuestros hermanos uruguayos','2022-06-15','2022-06-15'),
 ('TEXAS', '', 'Grilled master piece','2022-06-15','2022-06-15');
 
-insert into comentarios ( texto_comentario, created_at, update_at)
-values ('nooo, tremenda!!', '2022-06-15','2022-06-15'),
-('muy buenaaaaaa', '2022-06-15','2022-06-15'),
-('fiesta!!', '2022-06-15','2022-06-15'),
-('caravana!!', '2022-06-15','2022-06-15'),
-('que locura!!', '2022-06-15','2022-06-15'),
-('la quiero!', '2022-06-15','2022-06-15'),
-('dondeeee', '2022-06-15','2022-06-15'),
-('wow', '2022-06-15','2022-06-15'),
-('sin palabras', '2022-06-15','2022-06-15'),
-('es una locura esto', '2022-06-15','2022-06-15'),
-('jajajaj', '2022-06-15','2022-06-15'),
-('jjujuj', '2022-06-15','2022-06-15'),
-('es la mejor hamburguesa que probé en mi vida', '2022-06-15','2022-06-15'),
-('quiero comerla ya', '2022-06-15','2022-06-15'),
-('receta?', '2022-06-15','2022-06-15'),
-('en donde la comieron?', '2022-06-15','2022-06-15'),
-('cuanto cuesta?', '2022-06-15','2022-06-15'),
-('quien la hizo', '2022-06-15','2022-06-15'),
-('que locura esa hamburguesa', '2022-06-15','2022-06-15'),
-('uruguay no falla', '2022-06-15','2022-06-15'),
-('quiero hacerla', '2022-06-15','2022-06-15'),
-('con que pan está hecha?', '2022-06-15','2022-06-15'),
-('nunca falla ese lugar', '2022-06-15','2022-06-15'),
-('macdonalds', '2022-06-15','2022-06-15'),
-('mac no fallaaaaaa', '2022-06-15','2022-06-15'),
-('masterpiece', '2022-06-15','2022-06-15'),
-('nunca vi algo igual', '2022-06-15','2022-06-15'),
-('tengo hambre', '2022-06-15','2022-06-15'),
-('que masa esa burrrggga', '2022-06-15','2022-06-15'),
-('mira lo que es eso papaaaaaa', '2022-06-15','2022-06-15'),
-('que paso aca?', '2022-06-15','2022-06-15'),
-('muy muy muy muy muy buena', '2022-06-15','2022-06-15'),
-('OMG', '2022-06-15','2022-06-15'),
-('beautiful burgerrrr!!', '2022-06-15','2022-06-15'),
-('esto es un delirio hermano', '2022-06-15','2022-06-15');
+INSERT INTO comentarios (texto_comentario, productos_id, usuarios_id, created_at)
+VALUES
+('caravana!!',4, 14, '2022-06-15'),
+('que locura!!',5,8, '2022-06-15'),
+('la quiero!',6,9, '2022-06-15'),
+('dondeeee',7,10, '2022-06-15'),
+('wow',8,11,'2022-06-15'),
+('sin palabras',9,12, '2022-06-15'),
+('es una locura esto',10,13, '2022-06-15'),
+('jajajaj',11,14 ,'2022-06-15'),
+('jjujuj', 12,8,'2022-06-15'),
+('es la mejor hamburguesa que probé en mi vida',13,9, '2022-06-15'),
+('quiero comerla ya',14,10, '2022-06-15'),
+('receta?',15,11, '2022-06-15'),
+('en donde la comieron?',16,12, '2022-06-15'),
+('cuanto cuesta?',17,13 ,'2022-06-15'),
+('quien la hizo',18,14 ,'2022-06-15'),
+('que locura esa hamburguesa',19,8 ,'2022-06-15'),
+('uruguay no falla',20,9, '2022-06-15'),
+('quiero hacerla',21,10 ,'2022-06-15'),
+('con que pan está hecha?',1,11, '2022-06-15'),
+('nunca falla ese lugar',2,12, '2022-06-15'),
+('macdonalds',3,13 ,'2022-06-15'),
+('mac no fallaaaaaa',4,14, '2022-06-15'),
+('masterpiece',5,8, '2022-06-15'),
+('nunca vi algo igual',6,9,'2022-06-15'),
+('tengo hambre',7,10 ,'2022-06-15'),
+('que masa esa burrrggga',8,11, '2022-06-15'),
+('mira lo que es eso papaaaaaa',9,12, '2022-06-15'),
+('que paso aca?',10,11, '2022-06-15'),
+('muy muy muy muy muy buena',11,12, '2022-06-15'),
+('OMG',12,13, '2022-06-15'),
+('beautiful burgerrrr!!',13,14, '2022-06-15'),
+('esto es un delirio hermano',14,8, '2022-06-15')
 
+insert into seguidores (usuarios_seguidos_id, usuarios_seguidores_id)
+values (8,14),
+(9,13),
+(10,12),
+(11,12),
+(12,11),
+(13,10),
+(14,8),
+(9,13),
+(11,9)
 
 
 
@@ -167,34 +90,7 @@ password VARCHAR(20) NOT NULL,
 birthdate DATE NOT NULL,
 created_at DATE,
 update_at Datetime,
-producto_id int unsigned,
-foreign key (producto_id) references productos (id),
-seguidores_id int unsigned,
-foreign key (seguidores_id) references seguidores (seguidor_id),
-seguidos_id int unsigned,
-foreign key (seguidos_id) references seguidores (seguidos_id)
 );
-
-ALTER TABLE `burgerfly_db`.`productos` 
-ADD INDEX `usuarios_id_idx` (`usuarios_id` ASC);
-;
-ALTER TABLE `burgerfly_db`.`productos` 
-ADD CONSTRAINT `usuarios_id`
-  FOREIGN KEY (`usuarios_id`)
-  REFERENCES `burgerfly_db`.`usuarios` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
-
-
-
-
-
-
-
-
-
-
-
 
 CREATE TABLE productos (
 id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -209,6 +105,19 @@ comentarios_id int unsigned,
 foreign key (comentarios_id) references comentarios (id)
 
 );
+ALTER TABLE `burgerfly_db`.`productos` 
+ADD INDEX `usuarios_id_idx` (`usuarios_id` ASC);
+;
+ALTER TABLE `burgerfly_db`.`productos` 
+ADD CONSTRAINT `usuarios_id`
+  FOREIGN KEY (`usuarios_id`)
+  REFERENCES `burgerfly_db`.`usuarios` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
 CREATE TABLE comentarios(
 id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 texto_comentario VARCHAR(500),

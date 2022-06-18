@@ -26,10 +26,10 @@ module.exports=(sequelize, DataTypes)=>{
         birthdate: {
             type: DataTypes.DATE
         },
-        createdAt: {
+        created_at: {
             type: DataTypes.DATE
         },
-        updateAt: {
+        update_at: {
             type: DataTypes.DATE
         }
 
