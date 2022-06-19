@@ -1,15 +1,16 @@
 const db = require ('../database/models');
 const sequelize = require ('sequelize');
+const { Sequelize } = require('../database/models');
+const op = db.Sequelize.Op;
 
-const indexController = {
 
-    index:function(req, res ) {
-      let producto = db.Producto.findAll({
-        order:[
-          ['createdAt','DESC']
-        ],
-      })
-    },
-    
+module.exports ={
+  home: function (req,res){
+    db.Producto.findAll({
+      order: Sequelize.literal('rand()')
+    })
+    .then(function(productos){
+      res.render('index', {productos:productos, tittle: 'index'})
+    })
+  }
 }
-module.exports = indexController

@@ -10,7 +10,7 @@ const productosControllers = {
       detalleProducto: function (req, res){
       let idProducto = req.params.id;
       db.Producto.findByPk(id, {
-        indlcude: [{all:true,nested: true}]
+        inclcude: [{all:true,nested: true}]
       })
       .then(function (unProducto){
         res.render('detalle',{UnProducto: unProducto, title: unProducto.nombre})
@@ -69,7 +69,7 @@ const productosControllers = {
   db.Producto.findAll(
     {
       where: {id_usuario: req.session.usuarioLogueado.id},
-      order: [['updateAt', 'DESC']]
+      order: [['updatedAt', 'DESC']]
     }
   )
   .then(function (productos){

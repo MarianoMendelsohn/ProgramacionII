@@ -23,7 +23,7 @@ module.exports= (sequelize, DataTypes)=>{
         created_at: {
             type: DataTypes.DATE
         },
-        update_at: {
+        updated_at: {
             type: DataTypes.DATE
         },
         
@@ -36,7 +36,7 @@ module.exports= (sequelize, DataTypes)=>{
     }
     let config = {
         tablename: 'productos',
-        timestamps: false, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
+        timestamps: true, //Aclareción en caso de no explicitar created_at, deleted_at y updated_at
         underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
     };
 
