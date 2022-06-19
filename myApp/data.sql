@@ -9,8 +9,8 @@ imagen_perfil VARCHAR(500) NOT NULL,
 email VARCHAR(200) UNIQUE NOT NULL,
 password VARCHAR(20) NOT NULL,
 birthdate DATE NOT NULL,
-created_at DATE,
-updated_at Datetime
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE productos (
@@ -18,8 +18,8 @@ id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 titulo_producto VARCHAR(150) NOT NULL,
 imagen_producto VARCHAR(500) NOT NULL,
 descripcion_producto VARCHAR (300) NOT NULL,
-created_at DATETIME,
-updated_at Datetime,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 usuarios_id int unsigned
 -- comentarios_id int unsigned -- La clave foráenea va en la otra tabla.
 );
@@ -29,8 +29,8 @@ id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 texto_comentario VARCHAR(500),
 productos_id INT UNSIGNED,
 usuarios_id INT UNSIGNED,
-created_at Datetime,
-updated_at Datetime
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 );
 
@@ -38,8 +38,8 @@ CREATE TABLE seguidores (
 id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 usuarios_seguidos_id INT UNSIGNED,
 usuarios_seguidores_id INT UNSIGNED,
-created_at Datetime,
-updated_at Datetime,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 FOREIGN KEY (usuarios_seguidos_id) REFERENCES usuarios(id),
 FOREIGN KEY (usuarios_seguidores_id) REFERENCES usuarios(id)
 );
