@@ -27,7 +27,7 @@ module.exports = (sequelize,DataTypes) => {
             timestamps: false
         }),
         Seguidor.belongsTo(models.Usuario, {
-            as: 'Usuarios2',
+            as: 'Usuarios_seguidores_',
             foreignKey: 'usuarios_seguidores_id',
             timestamps: false
         })
