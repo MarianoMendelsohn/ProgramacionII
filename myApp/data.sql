@@ -10,28 +10,28 @@ values ('kundo','','kundo@gmail.com', 'hola123','1999-03-06','2022-04-04','2022-
 ('Brian','', 'brian@gmail.com', 'hola123', '1992-01-01','2022-05-05','2022-06-06'),
 ('Luis','', 'luis@gmail.com', 'hola123', '1985-10-10','2022-05-05','2022-06-06');
 
-insert into productos ( titulo_producto, imagen_producto, descripcion_producto, fecha_creacion, update_at)
-values ('Big Mac', '', 'El clásico de siempre, esta vez modernizado','2022-06-15','2022-06-15'),
-('Cuarto de Libra', '', 'Historicamente nuestra mejor hamburguesa','2022-06-15','2022-06-15'),
-('Triple Bacon', '', 'La panceta hace mejor a las hamburguesas','2022-06-15','2022-06-15'),
-('McFiesta', '', 'Fiessta en tu bocaaa','2022-06-15','2022-06-15'),
-('Grand Tasty Turbo Bacon', '', 'la mejor hamburguesa de la era moderna','2022-06-15','2022-06-15'),
-('McVeggie', '', 'Vegeteraiana para todos los gustos','2022-06-15','2022-06-15'),
-('McPollo', '', 'Y si sos del pollo es por acá..','2022-06-15','2022-06-15'),
-('DobleCheese', '', 'Q','2022-06-15','2022-06-15'),
-('Tripe Monster', '', 'te la bancas?','2022-06-15','2022-06-15'),
-('Original Meet', '', 'Carne vacuna ','2022-06-15','2022-06-15'),
-('Chimi Burger', '', 'Un poquito del asado en una hamburgesa','2022-06-15','2022-06-15'),
-('Pork Burger', '', 'Hamburgeusa hecha a base de cerdo','2022-06-15','2022-06-15'),
-('ChoriBurger', '', 'el embutido por excelencia','2022-06-15','2022-06-15'),
-('CasaMoma', '', 'La mejor hamburguesa que vas a probar en tu vida','2022-06-15','2022-06-15'),
-('Mostaza', '', 'Buena alternativa','2022-06-15','2022-06-15'),
-('Triple Queso', '', 'No Falla.','2022-06-15','2022-06-15'),
-('TFTS', '', 'Hamburguesa texana','2022-06-15','2022-06-15'),
-('Buenos Aires', '', 'Bien porteña','2022-06-15','2022-06-15'),
-('Chaco', '', 'La chaconeta señores...','2022-06-15','2022-06-15'),
-('Uruguay', '', 'Hamburguesa de nuestros hermanos uruguayos','2022-06-15','2022-06-15'),
-('TEXAS', '', 'Grilled master piece','2022-06-15','2022-06-15');
+insert into productos ( titulo_producto, imagen_producto, descripcion_producto, fecha_creacion, update_at, usuarios_id)
+values ('Big Mac', '', 'El clásico de siempre, esta vez modernizado','2022-06-15','2022-06-15',8),
+('Cuarto de Libra', '', 'Historicamente nuestra mejor hamburguesa','2022-06-15','2022-06-15',9),
+('Triple Bacon', '', 'La panceta hace mejor a las hamburguesas','2022-06-15','2022-06-15',10),
+('McFiesta', '', 'Fiessta en tu bocaaa','2022-06-15','2022-06-15',11),
+('Grand Tasty Turbo Bacon', '', 'la mejor hamburguesa de la era moderna','2022-06-15','2022-06-15',13),
+('McVeggie', '', 'Vegeteraiana para todos los gustos','2022-06-15','2022-06-15',14),
+('McPollo', '', 'Y si sos del pollo es por acá..','2022-06-15','2022-06-15',8),
+('DobleCheese', '', 'Q','2022-06-15','2022-06-15',9),
+('Tripe Monster', '', 'te la bancas?','2022-06-15','2022-06-15',10),
+('Original Meet', '', 'Carne vacuna ','2022-06-15','2022-06-15',11),
+('Chimi Burger', '', 'Un poquito del asado en una hamburgesa','2022-06-15','2022-06-15',12),
+('Pork Burger', '', 'Hamburgeusa hecha a base de cerdo','2022-06-15','2022-06-15',13),
+('ChoriBurger', '', 'el embutido por excelencia','2022-06-15','2022-06-15',14),
+('CasaMoma', '', 'La mejor hamburguesa que vas a probar en tu vida','2022-06-15','2022-06-15',8),
+('Mostaza', '', 'Buena alternativa','2022-06-15','2022-06-15',9),
+('Triple Queso', '', 'No Falla.','2022-06-15','2022-06-15',10),
+('TFTS', '', 'Hamburguesa texana','2022-06-15','2022-06-15',11),
+('Buenos Aires', '', 'Bien porteña','2022-06-15','2022-06-15',12),
+('Chaco', '', 'La chaconeta señores...','2022-06-15','2022-06-15',14),
+('Uruguay', '', 'Hamburguesa de nuestros hermanos uruguayos','2022-06-15','2022-06-15',14),
+('TEXAS', '', 'Grilled master piece','2022-06-15','2022-06-15',8);
 
 INSERT INTO comentarios (texto_comentario, productos_id, usuarios_id, created_at)
 VALUES
