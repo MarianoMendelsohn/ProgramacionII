@@ -84,6 +84,12 @@ const usuariosController = {
      })
   },
 
+  cerrarSesion : (req, res)  => {
+    req.session.destroy()
+    res.clearCookie("userId")
+    return res.render("login")
+  }
+
 }
 
 module.exports = usuariosController;
