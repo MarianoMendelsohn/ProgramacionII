@@ -3,7 +3,7 @@ const user = db.Usuario;
 
 /* Requiriendo el modulo de bcryptjs .. */
 const bcryptjs = require("bcryptjs");
-const { and } = require('sequelize/types');
+
 
 /*const usuariosController = {
   index: (req, res) => {
@@ -37,9 +37,14 @@ const usuariosController = {
       if (result != null) {
         let claveCorrecta = bcryptjs.compareSync(info.password, result.password)
         if (claveCorrecta) {
-          return res.send ("existe el mail"+ result.email + "y la password es correcta")
+        req.session.user = result;
+        if(info.loginRemember){
+          res.cookie('userId',result.id,{maxAge:1000*60*5})
+        }
+        res.redirect('/')
         } else {
-          return res.send ("existe el mail"+ result.email + "pero la password es incorrecta")
+          res.render('login')
+         
         }
 
 
@@ -68,6 +73,7 @@ const usuariosController = {
       email: info.email,
       password: passEncriptada,
       birthdate: info.birthdate,
+      imagen_perfil:"",
       created_at: new Date(),
       update_at: new Date(),
     };

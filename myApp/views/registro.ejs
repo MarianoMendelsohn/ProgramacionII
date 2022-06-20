@@ -6,7 +6,7 @@
 		<%- include('./partials/header') %>
 			<div class="bg-img">
 				<!----FALTA EL REMEMBER TOKEN (RECORDARME)----->
-				<form action="/register/store" class="formulario" method="post" name="registracion">
+				<form action="/usuarios/registro" class="formulario" method="post" name="registracion">
 					<h1></h1>
 
 
@@ -16,9 +16,7 @@
 					<label for="name"><b>usuario</b></label>
 					<input type="text" placeholder="username" name="username" required>
 
-					<label for="f-de-nac"><b>Imagen de Perfil</b></label>
-					<input type="date" placeholder="Fecha de Nacimiento" name="imagen_perfil" required>
-
+			
 					<label for="psw"><b>Password</b></label> <!-- Post -->
 					<input type="password" placeholder="Enter Password" name="password" required>
 

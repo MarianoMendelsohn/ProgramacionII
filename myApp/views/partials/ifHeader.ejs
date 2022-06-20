@@ -1,6 +1,6 @@
 <!-- Una vez unificados los partials de los header renombrar este como header-->
 
-<% if(user != null) { %>
+<% if(locals.user) { %>
     <%- include('headerLogueado')  %> 
 <% } else { %>
     <%- include('header')  %> 

@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session') // requereimos el modulo session
-
+const db = require('./database/models')
 let indexRouter = require('./routes/indexRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
 let productosRouter = require('./routes/productosRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
 let usuariosRouter = require('./routes/usuariosRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
@@ -21,19 +21,39 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session( { secret: "burgerfly!",
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(function (req, res, next) {
+  if (req.session.user != undefined) {
+    res.locals.user = req.session.user
+  }
+  return next();
+});
+
+app.use(function(req, res, next) {
+  if(req.cookies.userId && !req.session.user) {
+    db.Usuario.findByPk(req.cookies.userId).then(results => {
+      req.session.user =results;
+      return next();
+    });
+  } else {
+  	return next();
+  }}
+);
+
+
 app.use('/', indexRouter); // asignamos los prefijjos a los modulos declarados arriba. Declaramos el path/ 
 app.use('/usuarios', usuariosRouter);
 app.use('/product', productosRouter); 
 
 
 // hay que ver si configuramos session
-/**
- * 
-app.use(session( { secret: "nuestro secreto",
-  resave: false,
-  saveUninitialized: true
-}));
-*/
+
+
+
 
 
 // catch 404 and forward to error handler
@@ -53,11 +73,6 @@ app.use(function (err, req, res, next) {
 });
 
 // Info para todas las vistas
-app.use(function (req, res, next) {
-  if (req.session.usuarioLogueado != undefined) {
-    res.locals.user = req.session.usuarioLogueado
-  }
-  return next();
-});
+
 
 module.exports = app;
