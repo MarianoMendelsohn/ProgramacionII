@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
 
 
         Usuario.hasMany(models.Comentario, {
-            foreignKey: 'usuarios_id',
+            foreignKey: 'usuarios_seguidores_id',
             as: 'comentarios',
         })
 

@@ -1,8 +1,11 @@
 const db = require('../database/models')
 const user = db.Usuario;
 
+/* Requiriendo el modulo de bcryptjs .. */
+const bcryptjs = require("bcryptjs");
+const { and } = require('sequelize/types');
 
-const usuariosController = {
+/*const usuariosController = {
   index: (req, res) => {
     db.Usuario.findAll({
       where: [{ awards: 1 }, { length: 120 }],
@@ -15,12 +18,69 @@ const usuariosController = {
         return res.send(result);
       });
   },
+    
 
+}*/
+
+
+const usuariosController = {
+  login: (req, res) => {
+    return res.render("login");
+  },
+  procesarLogin: (req, res) => {
+   let info = req.body;
+   //return res.send(info.usuario) para ver si capturo la informacion del formulario
+
+    user.findOne({
+      where : [{email: info.email}]
+    }).then((result) =>{
+      if (result != null) {
+        let claveCorrecta = bcryptjs.compareSync(info.password, result.password)
+        if (claveCorrecta) {
+          return res.send ("existe el mail"+ result.email + "y la password es correcta")
+        } else {
+          return res.send ("existe el mail"+ result.email + "pero la password es incorrecta")
+        }
+
+
+
+        
+      } else {
+        return res.send ("no existe el mail"+ "" + info.email)
+      }
+
+    });
+
+
+
+
+
+  },
+  registro: (req, res) => {
+    return res.render("registro");
+  },
+  procesarRegistro: (req, res) => {
+
+    let info = req.body;
+    let passEncriptada = bcryptjs.hashSync(info.password, 10) //nivel de salt 
+    let usuario = {
+      username: info.username,
+      email: info.email,
+      password: passEncriptada,
+      birthdate: info.birthdate,
+      created_at: new Date(),
+      update_at: new Date(),
+    };
+
+     user.create(usuario)
+     .then((result) => {
+      return res.redirect("/usuarios/login")
+     })
+  },
 
 }
+
 module.exports = usuariosController;
-
-
 
 /*registro: (req, res) => {
   if (req.session.usuarioIngresado != null) {
