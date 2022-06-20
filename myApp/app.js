@@ -5,11 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session') // requereimos el modulo session
 
-
-
-
-
-
 let indexRouter = require('./routes/indexRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
 let productosRouter = require('./routes/productosRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
 let usuariosRouter = require('./routes/usuariosRouter') // requerimos los modulos de las rutas que fueron exportados en los archivos correspondientes
@@ -31,6 +26,14 @@ app.use('/usuarios', usuariosRouter);
 app.use('/product', productosRouter); 
 
 
+// hay que ver si configuramos session
+/**
+ * 
+app.use(session( { secret: "nuestro secreto",
+  resave: false,
+  saveUninitialized: true
+}));
+*/
 
 
 // catch 404 and forward to error handler

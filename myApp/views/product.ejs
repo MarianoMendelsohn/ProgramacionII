@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-	<%- include('./partials/head')  %> 
-<body>
-	<!-- Header -->
-	<%- include("./partials/header")  %> 
-	<!-- /Header -->
-	
-	<!-- Banner -->
-	<div class="bannerProductos">
-		<img src="/images/bannerTodos.jpg" alt="Banner de Productos">
-	 </div>
-	<!-- /Banner -->
+<%- include('./partials/head') %>
 
-	<!-- product detail -->
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%=producto.nombreDelProducto %> </h2> <!--el tag de ejs nos trae la información requerida.-->
-			<p class="product-detail-description">
-				<a href="/product/agregarProducto">Editar</a>
-			</p>
-		</div>
-		<div class="product-detail">
-			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%=producto.imagen  %> " alt="" class="product-detail-img">
+	<body>
+		<!-- Header -->
+		<%- include("./partials/header") %>
+			<!-- /Header -->
+
+			<!-- Banner -->
+			<div class="bannerProductos">
+				<img src="/images/bannerTodos.jpg" alt="Banner de Productos">
+			</div>
+			<!-- /Banner -->
+
+			<!-- product detail -->
+			<div class="container products-wrapper">
+				<div class="d-flex align-items-center">
+					<h2 class="products-title">
+						<%=producto.nombreDelProducto %>
+					</h2>
+					<!--el tag de ejs nos trae la información requerida.-->
 					<p class="product-detail-description">
-						<%= producto.descripcion  %> 
+						<a href="/product/agregarProducto">Editar</a>
 					</p>
-				</article>
-
-				
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<% for( let i = 0; i < comentarios.length; i++ ) { %>
-						<article>
-							<img src="<%=comentarios[i].imagenDelPerfil %> " alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="/usuarios/perfil"> <%= comentarios[i].nombreDeUsuario  %> : </a> </strong>
-								 <%= comentarios[i].textoDelComentario %> </p>
-							</div>
+				</div>
+				<div class="product-detail">
+					<div class="row">
+						<article class="col-12 col-lg-8 product-detail-info">
+							<img src="<%=producto.imagen  %> " alt="" class="product-detail-img">
+							<p class="product-detail-description">
+								<%= producto.descripcion %>
+							</p>
 						</article>
-						<% } %>
-						
 
-					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
+
+						<div class="col-12 col-lg-4">
+							<section class="comments">
+								<% for( let i=0; i < comentarios.length; i++ ) { %>
+									<article>
+										<img src="<%=comentarios[i].imagenDelPerfil %> " alt="">
+										<div class="data">
+											<p class="user">
+												<strong> <a href="/usuarios/perfil">
+														<%= comentarios[i].nombreDeUsuario %> :
+													</a> </strong>
+												<%= comentarios[i].textoDelComentario %>
+											</p>
+										</div>
+									</article>
+									<% } %>
+
+
+							</section>
+							<form class="form" action="" method="POST">
+								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+							</form>
+							<hr>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- /product detail -->
+			<!-- /product detail -->
 
-	<!-- footer -->
-	<%- include('./partials/footer')  %> 
-	<!-- /footer -->
+			<!-- footer -->
+			<%- include('./partials/footer') %>
+				<!-- /footer -->
 
-</body>	
+	</body>
+
 </html>

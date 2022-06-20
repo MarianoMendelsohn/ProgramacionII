@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('./partials/head')  %> 
-<body>
-	
-	<%- include('./partials/headerLogueado')  %> 
+<%- include('./partials/head') %>
 
-	
-		
-	<h2 class="products-title">Editar mi perfil</h2>
-		
-			
-		<h2 class="col-12"> 
-			<div class="editarPerfilForm">
-			    <form action="/action_page.php" method="post" class="formulario">
-					<h1></h1>
-				   
-				
-					<label for="mail"><b>mail</b></label>
-					<input type="text" placeholder="Correo electronico" name="email" required>
-		  
-					<label for="name"><b>Usuario</b></label>
-					<input type="text" placeholder="Username" name="username" required>
-	  
-					<label for="psw"><b>Contraseña</b></label>
+	<body>
+
+		<%- include('./partials/headerLogueado') %>
+
+
+
+			<h2 class="products-title">Editar mi perfil</h2>
+
+
+			<h2 class="col-12">
+				<div class="editarPerfilForm">
+					<form action="/action_page.php" method="post" class="formulario">
+						<h1></h1>
+
+
+						<label for="mail"><b>mail</b></label>
+						<input type="text" placeholder="Correo electronico" name="email" required>
+
+						<label for="name"><b>Usuario</b></label>
+						<input type="text" placeholder="Username" name="username" required>
+
+						<label for="psw"><b>Contraseña</b></label>
 						<input type="password" placeholder="Contraseña" name="password" required>
-	  
-				   <label for="f-de-nac"><b>Fecha de Nacimiento</b></label>
-				   <input type="date" placeholder="Fecha de Nacimiento" name="birthdate" required>
-				
-	  
-					<label for="fdp"><b>Foto de Perfil</b></label>
+
+						<label for="f-de-nac"><b>Fecha de Nacimiento</b></label>
+						<input type="date" placeholder="Fecha de Nacimiento" name="birthdate" required>
+
+
+						<label for="fdp"><b>Foto de Perfil</b></label>
 						<input type="file" placeholder="Foto de Perfil" name="fdp" required>
-	  
-				  
-					<button type="submit" class="btn">Guardar Cambios</button>
-				</form>
-			</div>
-			
-		</h2>
-	
+
+
+						<button type="submit" class="btn">Guardar Cambios</button>
+					</form>
+				</div>
+
+			</h2>
 
 
 
-	<%- include('./partials/footer')  %> 
-	
-</body>
+
+			<%- include('./partials/footer') %>
+
+	</body>
 
 </html>

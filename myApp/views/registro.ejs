@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-	<%- include('./partials/head') %>
+<%- include('./partials/head') %>
 
 	<body>
 		<%- include('./partials/header') %>
-		<div class="bg-img">
-		
-			<form action="/register/store" class="formulario" method="post" name="registracion">
-			  <h1></h1>
-			 
-		  
-			  <label for="mail"><b>mail</b></label>
-			  <input type="text" placeholder="Correo electronico" name="email" required>
-	
-			  <label for="name"><b>usuario</b></label>
-			  <input type="text" placeholder="username" name="username" required>
-			  
-			  <label for="f-de-nac"><b>Imagen de Perfil</b></label>
-			  <input type="date" placeholder="Fecha de Nacimiento" name="imagen_perfil" required>
+			<div class="bg-img">
 
-			  <label for="psw"><b>Password</b></label> <!-- Post -->
-   	 		  <input type="password" placeholder="Enter Password" name="password" required>
+				<form action="/register/store" class="formulario" method="post" name="registracion">
+					<h1></h1>
 
-			 <label for="f-de-nac"><b>Fecha de Nacimiento</b></label>
-			 <input type="date" placeholder="Fecha de Nacimiento" name="birthdate" required>
-		  
 
-			  <label for="fdp"><b>Foto de Perfil</b></label>
-   	 		  <input type="file" placeholder="Foto de Perfil" name="fdp" required>
+					<label for="mail"><b>mail</b></label>
+					<input type="text" placeholder="Correo electronico" name="email" required>
 
-			
-			  <button type="submit" class="btn">Registrarse</button>
-			</form>
-		</div>
-		
+					<label for="name"><b>usuario</b></label>
+					<input type="text" placeholder="username" name="username" required>
 
-			
+					<label for="f-de-nac"><b>Imagen de Perfil</b></label>
+					<input type="date" placeholder="Fecha de Nacimiento" name="imagen_perfil" required>
+
+					<label for="psw"><b>Password</b></label> <!-- Post -->
+					<input type="password" placeholder="Enter Password" name="password" required>
+
+					<label for="f-de-nac"><b>Fecha de Nacimiento</b></label>
+					<input type="date" placeholder="Fecha de Nacimiento" name="birthdate" required>
+
+
+					<label for="fdp"><b>Foto de Perfil</b></label>
+					<input type="file" placeholder="Foto de Perfil" name="fdp" required>
+
+
+					<button type="submit" class="btn">Registrarse</button>
+				</form>
+			</div>
 
 
 
-							
-		<%- include('./partials/footer') %>						
+
+
+
+
+			<%- include('./partials/footer') %>
 	</body>
 
 </html>

@@ -12,37 +12,37 @@
 			<!-- Novedades -->
 			<main>
 				<% if (locals.errorLogin) { %>
-				<p class="mensajeError">  </p>	
-				<%} %> 
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Ingresar</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<h2 class="col-12">
-						<form action='/usuarios/login' method="post" class="login-form">
-							<p class="login-text">
-								<span class="fa-stack fa-lg">
-									<i class="fa fa-circle fa-stack-2x"></i>
-									<i class="fa fa-lock fa-stack-1x"></i>
-								</span>
-							</p>
-							<input type="email" name="usuario" class="login-username" autofocus="true" required="true"
-								placeholder="usuario" />
-							<input type="password" name="password" class="login-password" required="true"
-								placeholder="Contraseña" />
-							<label class="Recordarme-label"><input type="checkbox" name="loginRemember"
-									class="Recordarme" />Recordarme</label>
-							<button type="submit">Login</button>
-							<a href="#" class="login-forgot-pass">forgot password?</a>
-						</form>
-						<div class="underlay-photo"></div>
-						<div class="underlay-black"></div>
-					</h2>
-				</div>
+					<p class="mensajeError"> </p>
+					<%} %>
+						<div class="container products-wrapper">
+							<div class="row">
+								<div class="col-12">
+									<h2 class="products-title">Ingresar</h2>
+								</div>
+								<!-- Show the "ultimos" products -->
+								<h2 class="col-12">
+									<form action='/usuarios/login' method="post" class="login-form">
+										<p class="login-text">
+											<span class="fa-stack fa-lg">
+												<i class="fa fa-circle fa-stack-2x"></i>
+												<i class="fa fa-lock fa-stack-1x"></i>
+											</span>
+										</p>
+										<input type="email" name="usuario" class="login-username" autofocus="true"
+											required="true" placeholder="usuario" />
+										<input type="password" name="password" class="login-password" required="true"
+											placeholder="Contraseña" />
+										<label class="Recordarme-label"><input type="checkbox" name="loginRemember"
+												class="Recordarme" />Recordarme</label>
+										<button type="submit">Login</button>
+										<a href="#" class="login-forgot-pass">forgot password?</a>
+									</form>
+									<div class="underlay-photo"></div>
+									<div class="underlay-black"></div>
+								</h2>
+							</div>
 
-			</div>
+						</div>
 			</main>
 
 			<!-- footer -->

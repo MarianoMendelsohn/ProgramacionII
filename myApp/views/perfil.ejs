@@ -11,17 +11,23 @@
 			<!-- Datos del usuario -->
 			<section class="info-usuario container products-wrapper">
 				<div class="card">
-					<img class="foto-de-perfil" src="<%= usuario.imagenDelPerfil %>" alt="Foto de Perfil" style="width:100%">
-					<h1><%= usuario.nombre %> <%= usuario.apellido %> </h1>
-					<p class="title"> <%= usuario.mail %></p>
+					<img class="foto-de-perfil" src="<%= usuario.imagenDelPerfil %>" alt="Foto de Perfil"
+						style="width:100%">
+					<h1>
+						<%= usuario.nombre %>
+							<%= usuario.apellido %>
+					</h1>
+					<p class="title">
+						<%= usuario.mail %>
+					</p>
 					<p>Founder</p>
 					<div class="d-flex align-items-center ">
 						<h1 class="main-title">
 							<a href="/usuarios/editarPerfil">
 								<i class="fas fa-cog"></i>
 							</a>
-				  </div>
-				<!--	<div class="data-container col-6">
+					</div>
+					<!--	<div class="data-container col-6">
 						<div class="d-flex align-items-center ">
 							<h1 class="main-title">
 								<a href="/usuarios/editarPerfil">
@@ -41,15 +47,15 @@
 				</div>-->
 			</section>
 			<!-- /Datos del usuario -->
-			
 
 
-			
 
 
-					<!-- footer -->
-					<%- include('./partials/footer') %>
-						<!-- /footer -->
+
+
+			<!-- footer -->
+			<%- include('./partials/footer') %>
+				<!-- /footer -->
 	</body>
 
 </html>

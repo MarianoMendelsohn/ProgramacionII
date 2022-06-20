@@ -1,9 +1,9 @@
-module.exports= (sequelize, DataTypes)=>{
-
-    
+module.exports = (sequelize, DataTypes) => {
 
 
-    
+
+
+
     let cols = {
 
         id: {
@@ -17,7 +17,7 @@ module.exports= (sequelize, DataTypes)=>{
         imagen_producto: {
             type: DataTypes.STRING
         },
-        descripcion_producto:{
+        descripcion_producto: {
             type: DataTypes.STRING
         },
         created_at: {
@@ -26,12 +26,12 @@ module.exports= (sequelize, DataTypes)=>{
         updated_at: {
             type: DataTypes.DATE
         },
-        
+
         usuarios_id: {
             type: DataTypes.INTEGER
         },
 
-        
+
 
     }
     let config = {
@@ -40,16 +40,16 @@ module.exports= (sequelize, DataTypes)=>{
         underscored: true, //Aclareción en caso que los timestamps usen guiones bajos en lugar de camelCase.
     };
 
-  const Producto = sequelize.define ('Producto' ,cols, config);
-  Producto.associate = function (models) {
-    Producto.belongsTo(models.Usuario, {
-        as: 'usuario',
-        foreignKey: 'usuarios_id'
-    })
-    
- 
-}
+    const Producto = sequelize.define('Producto', cols, config);
+    Producto.associate = function (models) {
+        Producto.belongsTo(models.Usuario, {
+            as: 'usuario',
+            foreignKey: 'usuarios_id'
+        })
 
-  
+
+    }
+
+
     return Producto;
 }
