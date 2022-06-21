@@ -75,18 +75,29 @@ const usuariosController = {
   },
 
   perfil: function (req, res) {
-    db.Usuario.findByPk(req.params.id)
+    let id = req.params.id
+    db.Usuario.findByPk(id,{
+      include: [{ all: true, nested: true }]
+    })
+ 
     .then(
-      
       function(result){
-        console.log(result,"result");
+       //console.log(result.Seguidores, "seguidores");
        return res.render("perfil", {
           usuario : result
+          
+         
         });
       }
     )    
   }
 }
+
+
+
+
+
+
 
 
 module.exports = usuariosController;

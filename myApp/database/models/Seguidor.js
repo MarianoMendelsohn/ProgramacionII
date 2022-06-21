@@ -22,14 +22,14 @@ module.exports = (sequelize, DataTypes) => {
 
     Seguidor.associate = function (models) {
         Seguidor.belongsTo(models.Usuario, {
-            as: 'Usuarios',
+            as: 'Seguidos',
             foreignKey: 'usuarios_seguidos_id',
-            timestamps: false
+            timestamps: true
         }),
             Seguidor.belongsTo(models.Usuario, {
-                as: 'Usuarios_seguidores_',
+                as: 'Seguidores',
                 foreignKey: 'usuarios_seguidores_id',
-                timestamps: false
+                timestamps: true
             })
     }
     return Seguidor;

@@ -27,7 +27,7 @@
 								<i class="fas fa-cog"></i>
 							</a>
 					</div>
-					<!--	<div class="data-container col-6">
+					<div class="data-container col-6">
 						<div class="d-flex align-items-center ">
 							<h1 class="main-title">
 								<a href="/usuarios/editarPerfil">
@@ -38,9 +38,24 @@
 						</div>
 						<div>
 							<ul class="">
-								<li>8 productos</li>
-								<li>200 seguidores</li>
-								<li>300 comentarios</li>
+								<% for( let i=0; i < usuario.Productos.length; i++ ) { %>
+								<li><img src="" alt=""><%= usuario.Productos[i].titulo_producto %> </li>
+								
+								<% } %>
+							</ul>
+						</div>
+						<div>
+							<ul class="">
+								<% for( let i=0; i < usuario.Comentarios.length; i++ ) { %>
+								<li><%= usuario.Comentarios[i].texto_comentario %> </li>
+								<% } %>
+							</ul>
+						</div>
+						<div>
+							<ul class="">
+								<% for( let i=0; i < usuario.Seguidores.length; i++ ) { %>
+								<li><%= usuario.Seguidores[i].usuarios_seguidores_id %> </li>
+								<% } %>
 							</ul>
 						</div>
 					</div>
