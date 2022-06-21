@@ -50,12 +50,14 @@ const usuariosController = {
 
     let info = req.body;
     let passEncriptada = bcryptjs.hashSync(info.password, 10) //nivel de salt 
+    let imgPerfil = req.file.filename;
+
     let usuario = {
       username: info.username,
       email: info.email,
       password: passEncriptada,
       birthdate: info.birthdate,
-      imagen_perfil: "",
+      imagen_perfil: imgPerfil,
       created_at: new Date(),
       update_at: new Date(),
     };

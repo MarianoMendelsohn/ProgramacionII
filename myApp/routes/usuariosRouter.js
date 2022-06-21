@@ -14,7 +14,7 @@ let storage = multer.diskStorage({
     filename : function(req, file, cb) {
       
         /*          name campoDelForm          -   26052022                 .png  */
-        cb(null, file.fieldname + '-' + Date.now()+ path.extname(file.originalname))
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 });
 
@@ -35,10 +35,11 @@ router.get('/perfil/:id', usuariosController.perfil);
 router.post('/register/store', usuariosController.store);*/
 
 router.get('/registro', usuariosController.registro);
-router.post('/registro', usuariosController.procesarRegistro);
+router.post('/registro',upload.single("imgPerfil") ,usuariosController.procesarRegistro);
 
 router.get('/login', usuariosController.login);
 router.post('/login', usuariosController.procesarLogin);
 
+router.get("/", usuariosController.cerrarSesion) //logout
 module.exports = router;
 

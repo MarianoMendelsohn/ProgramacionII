@@ -6,7 +6,7 @@
 		<%- include('./partials/header') %>
 			<div class="bg-img">
 				<!----FALTA EL REMEMBER TOKEN (RECORDARME)----->
-				<form action="/usuarios/registro" class="formulario" method="post" name="registracion">
+				<form action="/usuarios/registro" class="formulario" method="POST" enctype="multipart/form-data" name="registracion">
 					<h1></h1>
 
 
@@ -25,7 +25,7 @@
 
 
 					<label for="fdp"><b>Foto de Perfil</b></label>
-					<input type="file" placeholder="Foto de Perfil" name="fdp" required>
+					<input id ="imgPerfil" class="submit" type="file" placeholder="Foto de Perfil" name="imgPerfil" required>
 
 
 					<button type="submit" class="btn">Registrarse</button>
