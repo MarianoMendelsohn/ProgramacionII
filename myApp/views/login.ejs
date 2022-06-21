@@ -11,9 +11,9 @@
 
 			<!-- Novedades -->
 			<main>
-				<% if (locals.errorLogin) { %>
-					<p class="mensajeError"> </p>
-					<%} %>
+				<% if (locals.errors) { %>
+					<p style="color: red;"><%= locals.errors.message %> </p>
+				<% } %> 
 						<div class="container products-wrapper">
 							<div class="row">
 								<div class="col-12">

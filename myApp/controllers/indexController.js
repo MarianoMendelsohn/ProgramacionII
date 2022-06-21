@@ -10,7 +10,7 @@ module.exports = {
     db.Producto.findAll({     
     })
       .then(function (listaProductosResultado) {        
-        res.render('index', { productos: listaProductosResultado, tittle: 'index' })        
+        res.render('index', { productos: listaProductosResultado})        
       })
   }
 }

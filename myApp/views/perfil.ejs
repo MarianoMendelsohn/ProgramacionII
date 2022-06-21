@@ -5,20 +5,20 @@
 
 	<body>
 		<!-- Header -->
-		<%- include('./partials/headerLogueado') %>
+		<%- include('./partials/ifHeader') %>
 			<!-- /Header -->
 
 			<!-- Datos del usuario -->
 			<section class="info-usuario container products-wrapper">
 				<div class="card">
-					<img class="foto-de-perfil" src="<%= usuario.imagenDelPerfil %>" alt="Foto de Perfil"
+					<img class="foto-de-perfil" src="<%= Usuario.imagen_perfil %>" alt="Foto de Perfil"
 						style="width:100%">
 					<h1>
-						<%= usuario.nombre %>
-							<%= usuario.apellido %>
+						<%= Usuario.username %>
+							
 					</h1>
 					<p class="title">
-						<%= usuario.mail %>
+						<%= Usuario.email %>
 					</p>
 					<p>Founder</p>
 					<div class="d-flex align-items-center ">

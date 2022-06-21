@@ -6,14 +6,13 @@ const Product = db.Producto
 const productosControllers = {
 
 
-
   detalleProducto: function (req, res) {
-    let idProducto = req.params.id;
+    let id = req.params.id;
     db.Producto.findByPk(id, {
       inclcude: [{ all: true, nested: true }]
     })
       .then(function (unProducto) {
-        res.render('detalle', { UnProducto: unProducto, title: unProducto.nombre })
+        res.render('product', { UnProducto: unProducto, title: unProducto.nombre })
       })
   },
 
@@ -30,7 +29,7 @@ const productosControllers = {
       id_producto: id_producto,
     })
       .then(function () {
-        res.redirect('/detalleProducto/:id' + id_producto)
+        res.redirect('/product/:id' + id_producto)
       })
   },
 
@@ -111,7 +110,7 @@ const productosControllers = {
     let id = req.params.id;
     db.Producto.findByPk(id)
       .then(function (producto) {
-        res.render('detalleProducto', { producto: producto, title: 'Borrar producto' })
+        res.render('product', { producto: producto, title: 'Borrar producto' })
       })
   },
   borrarConfirm: function (req, res) {
@@ -127,8 +126,25 @@ const productosControllers = {
       .then(function (output) {
         res.redirect('/usuarios/perfil')
       })
-  }
 
+  },
+
+  //buscacador
+
+  busquedaProducto: function (req, res) {
+    let busqueda = "%" + req.query.search + "%"
+    const op = db.Sequelize.Op
+    db.Producto.findAll({
+      where: [{ titulo_producto: { [op.like]: busqueda } }],
+      order: [['titulo_producto']]
+    }
+
+    ).then(
+      function (result) {
+        res.render('resultadoBusqueda', { productos: result })
+      }
+    )
+  }
 }
 
 

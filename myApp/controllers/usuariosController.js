@@ -28,30 +28,31 @@ const usuariosController = {
     return res.render("login");
   },
   procesarLogin: (req, res) => {
-   let info = req.body;
-   //return res.send(info.usuario) para ver si capturo la informacion del formulario
+    let info = req.body;
+    let errors = {}
+    //return res.send(info.usuario) para ver si capturo la informacion del formulario
 
     user.findOne({
-      where : [{email: info.email}]
-    }).then((result) =>{
+      where: [{ email: info.email }]
+    }).then((result) => {
       if (result != null) {
         let claveCorrecta = bcryptjs.compareSync(info.password, result.password)
         if (claveCorrecta) {
-        req.session.user = result;
-        if(info.loginRemember){
-          res.cookie('userId',result.id,{maxAge:1000*60*5})
-        }
-        res.redirect('/')
+          req.session.user = result;
+          if (info.loginRemember) {
+            res.cookie('userId', result.id, { maxAge: 1000 * 60 * 10 })
+          }
+          res.redirect('/')
         } else {
-          res.render('login')
-         
+          errors.message = "credenciales invalidas";
+          res.locals.errors = errors;
+          res.render('login'  )
+
         }
-
-
-
-        
       } else {
-        return res.send ("no existe el mail"+ "" + info.email)
+        errors.message = "credenciales invalidas";
+        res.locals.errors = errors;
+        res.render('login')
       }
 
     });
@@ -73,24 +74,32 @@ const usuariosController = {
       email: info.email,
       password: passEncriptada,
       birthdate: info.birthdate,
-      imagen_perfil:"",
+      imagen_perfil: "",
       created_at: new Date(),
       update_at: new Date(),
     };
 
-     user.create(usuario)
-     .then((result) => {
-      return res.redirect("/usuarios/login")
-     })
+    user.create(usuario)
+      .then((result) => {
+        return res.redirect("/usuarios/login")
+      })
   },
 
-  cerrarSesion : (req, res)  => {
+  cerrarSesion: (req, res) => {
     req.session.destroy()
     res.clearCookie("userId")
     return res.render("login")
+  },
+
+  perfil: function (req, res) {
+    let info = req.body
+    res.render("perfil", {
+    
+    });
   }
 
 }
+
 
 module.exports = usuariosController;
 
@@ -266,15 +275,6 @@ editarPerfil: function (req, res) {
     birthdate:req.body.birthdate,
 
   });
-},
-perfil: function (req, res) {
-  res.render("perfil", {
-    usuario: data.usuario,
-    lista: data.productos,
-    comentarios: data.comentarios,
-  });
-},
-
-};*/
+},*/
 
 

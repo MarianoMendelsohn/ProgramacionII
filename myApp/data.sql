@@ -23,7 +23,7 @@ descripcion_producto VARCHAR (300) NOT NULL,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 usuarios_id int unsigned
--- comentarios_id int unsigned -- La clave foráenea va en la otra tabla.
+
 );
 
 CREATE TABLE comentarios(
@@ -48,12 +48,13 @@ FOREIGN KEY (usuarios_seguidores_id) REFERENCES usuarios(id)
 
 ALTER TABLE `productos` 
 ADD foreign key (usuarios_id) references usuarios (id);
--- ADD foreign key (comentarios_id) references comentarios (id); -- La clave foráenea va en la otra tabla.
+
 
 ALTER TABLE `comentarios` 
 ADD FOREIGN KEY (productos_id) REFERENCES productos(id),
 ADD FOREIGN KEY (usuarios_id) REFERENCES usuarios(id);
 
+-- ADD foreign key (comentarios_id) references comentarios (id); -- La clave foráenea va en la otra tabla.
 insert into usuarios (username, imagen_perfil, email, password, birthdate, created_at, updated_at) 
 values ('kundo','','kundo@gmail.com', 'hola123','1999-03-06','2022-04-04','2022-05-05'),
 ('marian','','marian@gmail.com','hola123','2003-03-25','2022-04-04','2022-05-05'),

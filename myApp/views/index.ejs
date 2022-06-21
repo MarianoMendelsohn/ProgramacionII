@@ -22,14 +22,13 @@
 					<!-- Show the "ultimos" products -->
 
 					<% for( let i=0; i < productos.length; i++ ) { %>
-						<!-- hacemos una interación de un bucle for metido en un arciho html. 
-																let i=0 el inicio del array, i<productos.lentgth condición de corte; i++ modificador que nos dice que va a ir recorriendo todo el array de menor a mayor. -->
+						
 
 						<div class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box">
-								<a href="/product/detalleProducto/<%= i %>">
+								<a href="/product/product/<%= productos[i].id %>">
 									<figure class="product-box_image">
-										<img src="<%= productos[i].imagen %> " alt="cafetera moulinex">
+										<img src="<%= productos[i].imagen %> " alt="burgas">
 									</figure>
 									<article class="product-box_data">
 										<h2>
