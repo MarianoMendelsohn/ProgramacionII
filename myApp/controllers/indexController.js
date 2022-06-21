@@ -7,7 +7,8 @@ const op = db.Sequelize.Op;
 module.exports = {
   home: function (req, res) {
     
-    db.Producto.findAll({     
+    db.Producto.findAll({ 
+      include: [{ all: true, nested: true }]    
     })
       .then(function (listaProductosResultado) {        
         res.render('index', { productos: listaProductosResultado})        

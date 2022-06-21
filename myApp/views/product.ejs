@@ -36,13 +36,13 @@
 							<section class="comments">
 								<% for( let i=0; i < comentarios.length; i++ ) { %>
 									<article>
-										<img src="<%=comentarios[i].imagenDelPerfil %> " alt="">
+										<img src="<%=comentarios[i].usuario.imagen_perfil %> " alt="">
 										<div class="data">
 											<p class="user">
-												<strong> <a href="/usuarios/perfil">
-														<%= comentarios[i].nombreDeUsuario %> :
+												<strong> <a href="/usuarios/perfil/<%= comentarios[i].usuario.id%>">
+														<%= comentarios[i].usuario.username %> :
 													</a> </strong>
-												<%= comentarios[i].textoDelComentario %>
+												<%= comentarios[i].texto_comentario %>
 											</p>
 										</div>
 									</article>

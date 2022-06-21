@@ -4,25 +4,6 @@ const user = db.Usuario;
 /* Requiriendo el modulo de bcryptjs .. */
 const bcryptjs = require("bcryptjs");
 
-
-/*const usuariosController = {
-  index: (req, res) => {
-    db.Usuario.findAll({
-      where: [{ awards: 1 }, { length: 120 }],
-      order: [["", "ASC"]],
-      limit: 5,
-      offset: 4
-
-    })
-      .then((result) => {
-        return res.send(result);
-      });
-  },
-    
-
-}*/
-
-
 const usuariosController = {
   login: (req, res) => {
     return res.render("login");
@@ -92,12 +73,17 @@ const usuariosController = {
   },
 
   perfil: function (req, res) {
-    let info = req.body
-    res.render("perfil", {
-    
-    });
+    db.Usuario.findByPk(req.params.id)
+    .then(
+      
+      function(result){
+        console.log(result,"result");
+       return res.render("perfil", {
+          usuario : result
+        });
+      }
+    )    
   }
-
 }
 
 

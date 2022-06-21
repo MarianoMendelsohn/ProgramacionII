@@ -9,11 +9,12 @@ const productosControllers = {
   detalleProducto: function (req, res) {
     let id = req.params.id;
     db.Producto.findByPk(id, {
-      inclcude: [{ all: true, nested: true }]
+      include: [{ all: true, nested: true }]
+    }).then(function (unProducto) {          
+            console.log(unProducto.comentarios);
+            res.render('product', { producto: unProducto, comentarios: unProducto.comentarios })                  
     })
-      .then(function (unProducto) {
-        res.render('product', { UnProducto: unProducto, title: unProducto.nombre })
-      })
+    
   },
 
   agregarComentario: function (req, res) {
@@ -135,13 +136,17 @@ const productosControllers = {
     let busqueda = "%" + req.query.search + "%"
     const op = db.Sequelize.Op
     db.Producto.findAll({
-      where: [{ titulo_producto: { [op.like]: busqueda } }],
+      where:{ [op.or]:[
+        { titulo_producto: { [op.like]: busqueda } }, 
+        { descripcion_producto: { [op.like]: busqueda } }
+      ]}
+    ,
       order: [['titulo_producto']]
     }
 
     ).then(
       function (result) {
-        res.render('resultadoBusqueda', { productos: result })
+        res.render('resultadoBusqueda', { productos: result });
       }
     )
   }

@@ -35,9 +35,11 @@
 											<%= productos[i].titulo_producto %>
 										</h2>
 										<p>
-											<%= productos[i].descripcion %>
+											<%= productos[i].descripcion_producto %>
 										</p>
-										<p>Comentarios: 5</p>
+										
+										<p>Comentarios: <%=  productos[i].comentarios.length%> </p>
+									
 									</article>
 								</a>
 							</section>
