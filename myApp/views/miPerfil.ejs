@@ -11,14 +11,13 @@
 			<!-- Datos del usuario -->
 			<section class="info-usuario container products-wrapper">
 				<div class="card">
-					<img class="foto-de-perfil" src="<%= usuario.imagen_perfil %>" alt="Foto de Perfil"
-						style="width:100%">
+					<img class="foto-de-perfil" src="<%= user.imagen_perfil %>" alt="Foto de Perfil" style="width:100%">
 					<h1>
-						<%= usuario.username %>
-							
+						<%= user.username %>
+
 					</h1>
 					<p class="title">
-						<%= usuario.email %>
+						<%= user.email %>
 					</p>
 					<p>Founder</p>
 					<div class="d-flex align-items-center ">
@@ -34,43 +33,46 @@
 									<i class="fas fa-cog"></i>
 								</a>
 							</h1>
-							<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+
 						</div>
 			</section>
 
 			<section class="dinosaurio products-wrapper">
-						<div class="diente">
-							<ul class="">
-								<% for( let i=0; i < usuario.Productos.length; i++ ) { %>
-								<li><img src="" alt=""><%= usuario.Productos[i].titulo_producto %> </li>
-								
-								<% } %>
-							</ul>
-						</div>
-						<div class="diente">
-							<ul class="">
-								<% for( let i=0; i < usuario.Comentarios.length; i++ ) { %>
-								<li><%= usuario.Comentarios[i].texto_comentario %> </li>
-								<% } %>
-							</ul>
-						</div>
-						<div class="diente">
-							<ul class="">
-								<% for( let i=0; i < usuario.Seguidores.length; i++ ) { %>
-								<li><%= usuario.Seguidores[i].usuarios_seguidores_id %> </li>
-								<% } %>
-							</ul>
-						</div>
-					</div>
+				<div class="diente">
+					<ul class="">
+						<% for( let i=0; i < user.Productos; i++ ) { %>
+							<li><img src="" alt="">
+								<%= user.Productos[i].titulo_producto %>
+							</li>
+
+							<% } %>
+					</ul>
+				</div>
+				<div class="diente">
+					<ul class="">
+						<% for( let i=0; i < user.Comentarios; i++ ) { %>
+							<li>
+								<%= user.Comentarios[i].texto_comentario %>
+							</li>
+							<% } %>
+					</ul>
+				</div>
+				<div class="diente">
+					<ul class="">
+						<% for( let i=0; i < user.Seguidores; i++ ) { %>
+							<li>
+								<%= user.Seguidores[i].usuarios_seguidores_id %>
+							</li>
+							<% } %>
+					</ul>
+				</div>
+				</div>
 				</div>-->
 			</section>
-			
-			
-			
-			
-			
-			<!-- /Datos del usuario -->
 
+		
+				</div>
+			</div>
 
 
 
