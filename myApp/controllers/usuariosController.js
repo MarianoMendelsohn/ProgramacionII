@@ -93,7 +93,7 @@ const usuariosController = {
   },
   miperfil: function(req,res){
     if (!req.session.user){
-      throw Error ('Not Authorised')
+      throw Error ('Not Authorized')
     }
     res.render('miPerfil');
     let id = req.params.id;
@@ -110,6 +110,38 @@ const usuariosController = {
   })
   
   },
+  editarPerfil: function(req,res){
+    if(!req.session.user){
+      throw Error ("Not Authorized")
+    }
+    res.render('editarPerfil');
+  },
+  perfilEditado: (req,res) =>{
+    let info = req.body;
+     let imgPerfil = req.file.filename;
+    let usuario ={
+      username: info.username,
+      email: info.email,
+      imagen_perfil: imgPerfil,
+
+    }
+    let filtro = {
+      where: {
+        id: req.params.id
+      }
+    }
+    if (req.params.id !=usuario.usuario_id){
+      return res.redirect('/usuarios/login')
+    }
+    else {
+      user.update(usuario,filtro)
+      .then((result)=>{
+        req.sesson.user=result.dataValues;
+        return res.redirect('/usuarios/perfil'+ req.params.id)
+      })
+    }
+  }
+
 }
 
 module.exports = usuariosController;

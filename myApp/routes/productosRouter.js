@@ -22,6 +22,7 @@ let upload = multer({ storage : storage})
 
 router.get('/product/:id', productosControllers.detalleProducto)
 router.get('/agregarProducto', productosControllers.agregarProducto)
+router.post('/product/:id',productosControllers.agregarComentario)
 //router.post('/agregarProducto',productosControllers.productoSubmit);
 router.get('/editarProducto', productosControllers.editarProducto)
 router.get('/busquedaProducto', productosControllers.busquedaProducto)

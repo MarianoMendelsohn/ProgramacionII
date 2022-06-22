@@ -21,7 +21,9 @@ let storage = multer.diskStorage({
 let upload = multer({ storage : storage})
 
 //router.get('/login', usuariosController.login);
-//router.get('/editarPerfil', usuariosController.editarPerfil);
+router.get('/editarPerfil', usuariosController.editarPerfil);
+router.post('/editarPerfil',upload.single("imgPerfil") ,usuariosController.perfilEditado);
+
 router.get('/perfil/:id', usuariosController.perfil);
 router.get('/miPerfil',usuariosController.miperfil);
 //router.get('/registro', usuariosController.registro);

@@ -10,7 +10,7 @@
 
 			<h2 class="col-12">
 				<div class="editarPerfilForm">
-					<form action="/action_page.php" method="post" class="formulario">
+					<form action="/usuarios/editarPerfil" method="post" class="formulario">
 						<h1></h1>
 
 						<label for="mail"><b>mail</b></label>
@@ -19,15 +19,8 @@
 						<label for="name"><b>Usuario</b></label>
 						<input type="text" placeholder="Username" name="username" required>
 
-						<label for="psw"><b>Contraseña</b></label>
-						<input type="password" placeholder="Contraseña" name="password" required>
-
-						<label for="f-de-nac"><b>Fecha de Nacimiento</b></label>
-						<input type="date" placeholder="Fecha de Nacimiento" name="birthdate" required>
-
-
 						<label for="fdp"><b>Foto de Perfil</b></label>
-						<input type="file" placeholder="Foto de Perfil" name="fdp" required>
+						<input type="file" placeholder="Foto de Perfil" name="imgPerfil" required>
 
 
 						<button type="submit" class="btn">Guardar Cambios</button>

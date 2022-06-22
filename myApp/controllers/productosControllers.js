@@ -1,8 +1,8 @@
 const db = require('../database/models');
 const sequelize = require('sequelize');
 const Product = db.Producto
-//const multer = require("multer");
-//const path = require("path");
+const Comment = db.Comentario
+
 
 
 const productosControllers = {
@@ -13,28 +13,39 @@ const productosControllers = {
     db.Producto.findByPk(id, {
       include: [{ all: true, nested: true }]
     }).then(function (unProducto) {          
-            console.log(unProducto.comentarios);
-            res.render('product', { producto: unProducto, comentarios: unProducto.comentarios })                  
+            
+            res.render('product', { producto: unProducto })                  
     })
     
   },
 
   agregarComentario: function (req, res) {
-    if (req.session.usuarioLogueado == undefined) {
-      res.redirect("/");
+    if (!req.session.user){
+      throw Error ('No Autorizado')
     }
-    let id_producto = req.params.id;
-    let id_usuario = req.session.usuarioLogueado.id;
 
-    db.Comentario.create({
-      texto_comentario: req.body.texto_comentario,
-      id_usuario: id_usuario,
-      id_producto: id_producto,
-    })
-      .then(function () {
-        res.redirect('/product/:id' + id_producto)
+    let productos_id = req.params.id;
+    let info = req.body;
+
+    console.log(info,'info')
+
+    let comentario ={
+      texto_comentario:info.comentar,
+      
+      productos_id: productos_id,
+      usuarios_id: req.session.user.id
+    }
+
+    Comment.create(comentario)
+      .then((result)=>{
+        return res.redirect(req.params.id)
       })
+  
+
+    
+   
   },
+  
 
 
   agregarProducto: function (req, res) {
