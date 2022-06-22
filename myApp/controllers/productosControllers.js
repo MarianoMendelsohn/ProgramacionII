@@ -36,30 +36,34 @@ const productosControllers = {
 
 
   agregarProducto: function (req, res) {
-    if (req.session.usuarioLogueado == undefined) {
-      res.redirect("/");
+    if (!req.session.user){
+      throw Error ('Not Authorised')
     }
-    res.render('agregarProducto', { title: 'Agregar Producto' });
+    res.render('agregarProducto')
   },
 
-  cargarProducto: function (req, res) {
-    if (req.session.usuarioLogueado == undefined) {
-      res.redirect("/");
+  productoSubmit: function(req,res){
+    if (!req.session.user){
+      return res.render('agregarProducto',{Error:"Not Authorized"});
     }
-    let id_producto = req.params.id;
-    let id_usuario = req.session.usuarioLogueado.id;
-    let imgProducto = req.file.filename;
+    req.body.usuarios_id = req.session.usuarios.id;
+    if (req.file) req.body.imagen_producto = (req.file.path).replace('public',"");
+  Product.create(req.body)
+  .then(function(){
+    res.redirect("/todosLosProductos/:")
+  })
+  .catch(function(error){
+    res.send(error);
+  })},
+  
 
-    db.Producto.create({
-      titulo_producto: req.body.titulo_producto,
-      imagen_producto: imgProducto,
-      descripcion_producto: req.body.descripcion_producto,
-      id_usuario: id_usuario,
-    })
-    //.then (Producto =>{
-    //  return res.redirect('/todosLosProductos');
-    // })
-  },
+
+
+
+
+
+
+
 
 
   misProductos: function (req, res) {

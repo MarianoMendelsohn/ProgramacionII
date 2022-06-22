@@ -90,6 +90,12 @@ const usuariosController = {
         });
       }
     )    
+  },
+  miperfil: function(req,res){
+    if (req.session.user == undefined) {
+      res.redirect('/')
+    }
+    res.render('miPerfil');
   }
 }
 

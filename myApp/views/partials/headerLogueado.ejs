@@ -35,14 +35,14 @@
 			</ul>
 
 			<ul class="right-navbar">
-				<li><a href="/usuarios/perfil">
+				<li><a href="/usuarios/miPerfil">
 						<%= user.username %> <i class="fas fa-user"></i>
-						<img src="/images/usuarios/<%= user.imagen_perfil %> " alt="<%= user.name %> ">
+						<img src="/images/usuarios/<%= user.imagen_perfil %> " class="imgPerfil" alt="<%= user.name %> ">
 					</a>
 				</li>
 				<li>
 					<form action="" method="post">
-						<button class="logout" type="submit"> <a href="/product/todosLosProductos">Cerrar sesión</a>
+						<button class="logout" type="submit"> <a href="/usuarios/login">Cerrar sesión</a>
 							<i class="fas fa-sign-in-alt"></i>
 						</button>
 					</form>

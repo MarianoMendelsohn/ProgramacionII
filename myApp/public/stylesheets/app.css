@@ -468,6 +468,19 @@ textarea.form-input {
   font-size: 16px;
   color: #ccc;
 }
+ .dinosaurio{
+ display: flex;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 30px;
+  font-size: 16px;
+  color: #ccc;
+ }
+ .diente{
+  padding: 50px;
+ }
+
+
+
 
 .foto-perfil{
   border-radius: 50%;
@@ -511,6 +524,13 @@ textarea.form-input {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    
+  }
+  .imgPerfil{
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 50%;
+    margin-top: 10px;
   }
 
   .left-navbar a,
@@ -794,3 +814,4 @@ body, html {
   justify-content:center;
 }
 
+.infoUsuario
