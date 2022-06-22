@@ -3,8 +3,7 @@ const sequelize = require('sequelize');
 const { Sequelize } = require('../database/models');
 const op = db.Sequelize.Op;
 
-
-module.exports = {
+let indexController= {
   home: function (req, res) {
     
     db.Producto.findAll({ 
@@ -14,4 +13,7 @@ module.exports = {
         res.render('index', { productos: listaProductosResultado})        
       })
   }
-}
+};
+// Deberia ser: //home y mostrar todos los productos
+
+ module.exports = indexController

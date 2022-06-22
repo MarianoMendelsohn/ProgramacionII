@@ -1,6 +1,8 @@
 const db = require('../database/models');
 const sequelize = require('sequelize');
 const Product = db.Producto
+//const multer = require("multer");
+//const path = require("path");
 
 
 const productosControllers = {
@@ -42,20 +44,24 @@ const productosControllers = {
     res.render('agregarProducto')
   },
 
-  productoSubmit: function(req,res){
-    if (!req.session.user){
-      return res.render('agregarProducto',{Error:"Not Authorized"});
-    }
-    req.body.usuarios_id = req.session.usuarios.id;
-    if (req.file) req.body.imagen_producto = (req.file.path).replace('public',"");
-  Product.create(req.body)
-  .then(function(){
-    res.redirect("/todosLosProductos/:")
-  })
-  .catch(function(error){
-    res.send(error);
-  })},
-  
+  productoSubmit: (req,res)=> {
+    let info = req.body;
+    let imgProducto = req.file.filename; 
+
+    let producto = {
+      titulo_producto: info.nuevoProducto,
+      imgProducto: imgProducto,
+      descripcion: info.descripcion,
+      created_at: new Date(),
+      update_at: new Date()
+    };
+
+    Product.create(producto)
+    .then((result)=> {
+      return res.redirect("/")
+    })
+  },
+    
 
 
 
@@ -154,6 +160,7 @@ const productosControllers = {
         res.render('resultadoBusqueda', { productos: result });
       }
     )
+    
   }
 }
 
