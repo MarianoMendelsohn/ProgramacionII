@@ -48,10 +48,11 @@ const productosControllers = {
     }
     let id_producto = req.params.id;
     let id_usuario = req.session.usuarioLogueado.id;
+    let imgProducto = req.file.filename;
 
     db.Producto.create({
       titulo_producto: req.body.titulo_producto,
-      // imagen_producto: req.file ?
+      imagen_producto: imgProducto,
       descripcion_producto: req.body.descripcion_producto,
       id_usuario: id_usuario,
     })
