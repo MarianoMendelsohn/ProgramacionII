@@ -61,8 +61,8 @@ const productosControllers = {
 
     let producto = {
       titulo_producto: info.nuevoProducto,
-      imgProducto: imgProducto,
-      descripcion: info.descripcion,
+      imagen_producto: imgProducto,
+      descripcion_producto: info.descripcion,
       created_at: new Date(),
       update_at: new Date()
     };
