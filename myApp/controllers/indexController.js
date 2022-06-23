@@ -10,7 +10,7 @@ let indexController= {
       include: [{ all: true, nested: true }]    
     })
       .then(function (listaProductosResultado) {        
-        res.render('index', { productos: listaProductosResultado})        
+        res.render('index', { productos: listaProductosResultado})  //objeto literal usado en la vista      
       })
   }
 };

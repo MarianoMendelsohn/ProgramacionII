@@ -27,7 +27,7 @@ const usuariosController = {
         } else {
           errors.message = "credenciales invalidas";
           res.locals.errors = errors;
-          res.render('login'  )
+          res.render('login')
 
         }
       } else {
@@ -70,56 +70,44 @@ const usuariosController = {
 
   cerrarSesion: (req, res) => {
     req.session.destroy()
+    res.locals.user = null
     res.clearCookie("userId")
-    return res.render("login")
+    return res.redirect("/")
   },
 
   perfil: function (req, res) {
     let id = req.params.id
-    db.Usuario.findByPk(id,{
+    db.Usuario.findByPk(id, {
       include: [{ all: true, nested: true }]
     })
- 
-    .then(
-      function(result){
-       //console.log(result.Seguidores, "seguidores");
-       return res.render("perfil", {
-          usuario : result
-          
-         
-        });
-      }
-    )    
+
+      .then(
+        function (result) {
+          //console.log(result.Seguidores, "seguidores");
+          return res.render("perfil", {
+            usuario: result
+
+
+          });
+        }
+      )
   },
-  miperfil: function(req,res){
-    if (!req.session.user){
-      throw Error ('Not Authorized')
+  miperfil: function (req, res) {
+    if (!req.session.user) {
+      throw Error('Not Authorized')
     }
-    res.render('miPerfil');
-    let id = req.params.id;
-        user.findByPk(id,  {
-            include:
-            {
-                all: true,
-                nested: true
-            }
-        })
-            .then((result) => {
-                // return res.send(result)
-                return res.render('miPerfil')
-  })
-  
+    return res.render('miPerfil', {user: req.session.user})      
   },
-  editarPerfil: function(req,res){
-    if(!req.session.user){
-      throw Error ("Not Authorized")
+  editarPerfil: function (req, res) {
+    if (!req.session.user) {
+      throw Error("Not Authorized")
     }
     res.render('editarPerfil');
   },
-  perfilEditado: (req,res) =>{
+  perfilEditado: (req, res) => {
     let info = req.body;
-     let imgPerfil = req.file.filename;
-    let usuario ={
+    let imgPerfil = req.file.filename;
+    let usuario = {
       username: info.username,
       email: info.email,
       imagen_perfil: imgPerfil,
@@ -130,15 +118,15 @@ const usuariosController = {
         id: req.params.id
       }
     }
-    if (req.params.id !=usuario.usuario_id){
+    if (req.params.id != usuario.usuario_id) {
       return res.redirect('/usuarios/login')
     }
     else {
-      user.update(usuario,filtro)
-      .then((result)=>{
-        req.sesson.user=result.dataValues;
-        return res.redirect('/usuarios/perfil'+ req.params.id)
-      })
+      user.update(usuario, filtro)
+        .then((result) => {
+          req.sesson.user = result.dataValues;
+          return res.redirect('/usuarios/perfil' + req.params.id)
+        })
     }
   }
 

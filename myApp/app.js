@@ -27,16 +27,18 @@ app.use(session( { secret: "burgerfly!",
 }));
 
 app.use(function (req, res, next) {
-  if (req.session.user != undefined) {
+  if (req.session.user != undefined) {    
     res.locals.user = req.session.user
   }
+  console.log(req.session.user, "session.user");
   return next();
 });
 
 app.use(function(req, res, next) {
   if(req.cookies.userId && !req.session.user) {
-    db.Usuario.findByPk(req.cookies.userId).then(results => {
-      req.session.user =results;
+    db.Usuario.findByPk(req.cookies.userId).then(results => {      
+      req.session.user = results;
+      console.log(req.session.user, "set session.user");
       return next();
     });
   } else {

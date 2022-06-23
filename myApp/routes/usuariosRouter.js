@@ -43,6 +43,6 @@ router.post('/registro',upload.single("imgPerfil") ,usuariosController.procesarR
 router.get('/login', usuariosController.login);
 router.post('/login', usuariosController.procesarLogin);
 
-router.get("/login", usuariosController.cerrarSesion) //logout
+router.get("/logout", usuariosController.cerrarSesion) //logout
 module.exports = router;
 
