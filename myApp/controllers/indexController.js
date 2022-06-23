@@ -12,7 +12,8 @@ let indexController= {
       .then(function (listaProductosResultado) {        
         res.render('index', { productos: listaProductosResultado})  //objeto literal usado en la vista      
       })
-  }
+  },
+
 };
 // Deberia ser: //home y mostrar todos los productos
 

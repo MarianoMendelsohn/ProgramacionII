@@ -36,6 +36,7 @@
 
 			<section class="dinosaurio products-wrapper">
 						<div class="diente">
+							<h1>Productos Subidos</h1>
 							<ul class="">
 								<% for( let i=0; i < usuario.Productos.length; i++ ) { %>
 								<li><img src="" alt=""><%= usuario.Productos[i].titulo_producto %> </li>
@@ -44,6 +45,7 @@
 							</ul>
 						</div>
 						<div class="diente">
+							<h1>Comentarios realizados</h1>
 							<ul class="">
 								<% for( let i=0; i < usuario.Comentarios.length; i++ ) { %>
 								<li><%= usuario.Comentarios[i].texto_comentario %> </li>
@@ -51,6 +53,7 @@
 							</ul>
 						</div>
 						<div class="diente">
+							<h1>seguidores</h1>
 							<ul class="">
 								<% for( let i=0; i < usuario.Seguidores.length; i++ ) { %>
 								<li><%= usuario.Seguidores[i].usuarios_seguidores_id %> </li>
