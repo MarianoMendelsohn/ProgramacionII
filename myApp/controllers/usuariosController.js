@@ -85,10 +85,7 @@ const usuariosController = {
         function (result) {
           //console.log(result.Seguidores, "seguidores");
           return res.render("perfil", {
-            usuario: result
-
-
-          });
+            usuario: result });
         }
       )
   },

@@ -75,14 +75,6 @@ const productosControllers = {
     
 
 
-
-
-
-
-
-
-
-
   misProductos: function (req, res) {
     if (req.session.usuarioLogueado == undefined) {
       res.redirect("/")
