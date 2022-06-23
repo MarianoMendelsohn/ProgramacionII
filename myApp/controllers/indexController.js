@@ -12,7 +12,8 @@ let indexController= {
       .then(function (listaProductosResultado) {        
         res.render('index', { productos: listaProductosResultado})        
       })
-  }
+  },
+
 };
 // Deberia ser: //home y mostrar todos los productos
 
