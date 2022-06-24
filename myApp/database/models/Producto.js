@@ -1,9 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
 
-
-
-
     let cols = {
 
         id: {
@@ -41,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const Producto = sequelize.define('Producto', cols, config);
+    
     Producto.associate = function (models) {
         Producto.belongsTo(models.Usuario, {
             as: 'usuario',
